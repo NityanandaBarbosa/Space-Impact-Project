@@ -16,8 +16,17 @@ _global_script_class_icons={
 [application]
 
 config/name="Space-Impact-Project"
+run/main_scene="res://Scenes/InitialScreen.tscn"
+boot_splash/image="res://Assests/wallpaperflare.com_wallpaper.png"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/width=1366
+window/size/height=720
+window/stretch/aspect="keep"
 
 [rendering]
 
+quality/2d/use_pixel_snap=true
 environment/default_environment="res://default_env.tres"

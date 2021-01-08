@@ -1,0 +1,157 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Assests/Fonts/font.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://Assests/Themas/main.tres" type="Theme" id=2]
+[ext_resource path="res://Script/InitialScreen.gd" type="Script" id=3]
+[ext_resource path="res://Assests/InitialScore/hp_gold_star.svg" type="Texture" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 25
+font_data = ExtResource( 1 )
+
+[node name="InitialScreen" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="background" type="TextureRect" parent="."]
+margin_left = -0.876221
+margin_top = 4.48816
+margin_right = 1378.12
+margin_bottom = 733.488
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = 524.906
+margin_top = 227.099
+margin_right = 924.906
+margin_bottom = 335.099
+theme = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="Panel"]
+margin_left = 123.299
+margin_top = 52.5073
+margin_right = 331.299
+margin_bottom = 107.507
+custom_fonts/font = SubResource( 1 )
+text = "Project"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Panel"]
+margin_left = 21.4778
+margin_top = 9.1879
+margin_right = 568.478
+margin_bottom = 82.1879
+custom_fonts/font = SubResource( 2 )
+text = "Space Impact"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel2" type="Panel" parent="."]
+margin_left = 637.449
+margin_top = 356.296
+margin_right = 808.449
+margin_bottom = 522.296
+theme = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Panel2"]
+anchor_left = 0.491
+anchor_top = 0.236
+anchor_right = 0.5
+anchor_bottom = 0.236
+margin_left = -68.961
+margin_top = -25.184
+margin_right = 70.5
+margin_bottom = 15.816
+custom_fonts/font = SubResource( 3 )
+text = "New Game "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="Panel2"]
+anchor_left = 0.491
+anchor_top = 0.236
+anchor_right = 0.491
+anchor_bottom = 0.236
+margin_left = -68.961
+margin_top = 22.118
+margin_right = 72.039
+margin_bottom = 63.118
+custom_fonts/font = SubResource( 4 )
+text = "Load Game"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button3" type="Button" parent="Panel2"]
+anchor_left = 0.491
+anchor_top = 0.236
+anchor_right = 0.491
+anchor_bottom = 0.236
+margin_left = -68.961
+margin_top = 69.118
+margin_right = 72.039
+margin_bottom = 110.118
+custom_fonts/font = SubResource( 5 )
+text = "Options"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel3" type="Panel" parent="."]
+margin_left = 1204.94
+margin_top = 55.9405
+margin_right = 1337.94
+margin_bottom = 149.941
+theme = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Panel3"]
+margin_left = 4.33643
+margin_top = 19.1001
+margin_right = 65.3364
+margin_bottom = 73.1001
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighScore" type="Label" parent="Panel3"]
+margin_left = 72.5009
+margin_top = 31.9178
+margin_right = 120.501
+margin_bottom = 62.9178
+custom_fonts/font = SubResource( 6 )
+text = "55"
