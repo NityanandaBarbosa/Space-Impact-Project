@@ -13,8 +13,10 @@ func _ready():
 	$background.texture = load("res://Assests/Background/background"+ str(random_choice) +".jpg" )
 	#$Panel3/HighScore.text = "2000"
 	pass # Replace with function body.
-
-
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+func _on_btn_newgame_pressed():
+	 get_tree().change_scene("res://Scenes/GameScreen.tscn")

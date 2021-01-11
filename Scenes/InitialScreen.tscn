@@ -30,20 +30,20 @@ font_data = ExtResource( 1 )
 script = ExtResource( 3 )
 
 [node name="background" type="TextureRect" parent="."]
-margin_left = -0.876221
-margin_top = 4.48816
-margin_right = 1378.12
-margin_bottom = 733.488
+margin_left = -1.0
+margin_top = 4.0
+margin_right = 1283.0
+margin_bottom = 720.0
 stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Panel" type="Panel" parent="."]
-margin_left = 524.906
-margin_top = 227.099
-margin_right = 924.906
-margin_bottom = 335.099
+margin_left = 490.261
+margin_top = 245.475
+margin_right = 890.261
+margin_bottom = 353.475
 theme = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -72,16 +72,16 @@ __meta__ = {
 }
 
 [node name="Panel2" type="Panel" parent="."]
-margin_left = 637.449
-margin_top = 356.296
-margin_right = 808.449
-margin_bottom = 522.296
+margin_left = 602.804
+margin_top = 374.672
+margin_right = 773.804
+margin_bottom = 540.672
 theme = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="Panel2"]
+[node name="btn_newgame" type="Button" parent="Panel2"]
 anchor_left = 0.491
 anchor_top = 0.236
 anchor_right = 0.5
@@ -127,16 +127,16 @@ __meta__ = {
 }
 
 [node name="Panel3" type="Panel" parent="."]
-margin_left = 1204.94
-margin_top = 55.9405
-margin_right = 1337.94
-margin_bottom = 149.941
+margin_left = 1097.18
+margin_top = 67.1651
+margin_right = 1230.18
+margin_bottom = 161.166
 theme = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="Panel3"]
+[node name="scoreStar" type="TextureRect" parent="Panel3"]
 margin_left = 4.33643
 margin_top = 19.1001
 margin_right = 65.3364
@@ -155,3 +155,4 @@ margin_right = 120.501
 margin_bottom = 62.9178
 custom_fonts/font = SubResource( 6 )
 text = "55"
+[connection signal="pressed" from="Panel2/btn_newgame" to="." method="_on_btn_newgame_pressed"]
