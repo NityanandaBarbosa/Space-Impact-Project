@@ -2,7 +2,11 @@
 
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assests/GamePlayTextures/Backgroud de batalha/PixelBackgroundSeamlessVertically.png" type="Texture" id=2]
+
+[ext_resource path="res://Scenes/Meteor/Meteor.tscn" type="PackedScene" id=3]
+
 [ext_resource path="res://Script/GameScreen.gd" type="Script" id=3]
+
 
 [node name="GameScreen" type="Node2D"]
 script = ExtResource( 3 )
@@ -19,3 +23,6 @@ __meta__ = {
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 47.2101, 389.713 )
+
+[node name="Meteor" parent="." instance=ExtResource( 3 )]
+position = Vector2( 653, 381 )
