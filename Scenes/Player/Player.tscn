@@ -8,6 +8,7 @@ radius = 40.0379
 
 [node name="Player" type="Area2D"]
 script = ExtResource( 2 )
+fireDelay = 0.35
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0.396797, 0.321996 )
@@ -29,3 +30,6 @@ position = Vector2( 15.4772, -42.463 )
 
 [node name="SpecialGun2" type="Node2D" parent="SpecialGuns"]
 position = Vector2( 15.4772, 43.2567 )
+
+[node name="FireDelayerTimer" type="Timer" parent="."]
+one_shot = true
