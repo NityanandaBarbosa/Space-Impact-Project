@@ -1,13 +1,16 @@
 extends Area2D
 
-
+var plBullet := preload("res://Scenes/Player/bullet.tscn")
 
 export var speed: float = 300
+
 var vel := Vector2(0,0)
 
 func _process(delta):
-	pass
-	
+	if Input.is_action_pressed("shoot"):
+		var bulllet = plBullet.instance()
+		bulllet.position = position
+		get_tree().current_scene.add_child(bulllet)
 	
 	
 func _physics_process(delta):

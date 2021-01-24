@@ -62,9 +62,9 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="Panel"]
 margin_left = 21.4778
-margin_top = 9.1879
+margin_top = 10.4478
 margin_right = 568.478
-margin_bottom = 82.1879
+margin_bottom = 83.4478
 custom_fonts/font = SubResource( 2 )
 text = "Space Impact"
 __meta__ = {
