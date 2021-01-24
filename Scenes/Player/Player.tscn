@@ -16,5 +16,16 @@ texture = ExtResource( 1 )
 vframes = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -9.87177, 1.55938 )
+position = Vector2( -10.6655, 1.95623 )
 shape = SubResource( 1 )
+
+[node name="FireGun" type="Node2D" parent="."]
+position = Vector2( 77.9811, -0.396851 )
+
+[node name="SpecialGuns" type="Node2D" parent="."]
+
+[node name="SpecialGun1" type="Node2D" parent="SpecialGuns"]
+position = Vector2( 15.4772, -42.463 )
+
+[node name="SpecialGun2" type="Node2D" parent="SpecialGuns"]
+position = Vector2( 15.4772, 43.2567 )
