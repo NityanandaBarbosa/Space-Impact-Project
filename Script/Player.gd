@@ -1,14 +1,27 @@
 extends Area2D
 
-
+var plBullet := preload("res://Scenes/Player/bullet.tscn")
 
 export var speed: float = 300
+export var fireDelay: float = 0.1
+
+onready var normalGun := $FireGun
+onready var gunsPosition := $SpecialGuns
+onready var fireDelayTimer := $FireDelayerTimer
+
+
 var vel := Vector2(0,0)
 
 func _process(delta):
-	pass
-	
-	
+	if Input.is_action_pressed("shoot") and fireDelayTimer.is_stopped():
+		fireDelayTimer.start(fireDelay)
+		var bulllet := plBullet.instance()
+		bulllet.global_position = normalGun.global_position
+		get_tree().current_scene.add_child(bulllet)
+		#for child in gunsPosition.get_children():
+		#	var bulllet := plBullet.instance()
+		#	bulllet.global_position = child.global
+		#	get_tree().current_scene.add_child(bulllet)
 	
 func _physics_process(delta):
 	var dirVec := Vector2(0,0)
