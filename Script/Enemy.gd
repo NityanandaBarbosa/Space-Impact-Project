@@ -2,8 +2,6 @@ extends Area2D
 
 export var minSpeed: float = -300
 export var maxSpeed: float = -100
-export var minRotationRate: float = -255
-export var maxRotationRate: float = 255
 
 export var life: int = 20
 
@@ -16,10 +14,8 @@ var rng = RandomNumberGenerator.new()
 func _ready():
 	randomize()
 	speed = rand_range(minSpeed,maxSpeed)
-	rotationRate = rand_range(minRotationRate,maxRotationRate)
 	
 func _physics_process(delta):
-	rotation_degrees += rotationRate * delta
 	position.x  += speed * delta
 	#position.y  += speed * delta
 
