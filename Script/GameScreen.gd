@@ -9,7 +9,7 @@ const PHASE_BACKGROUND = [
 	"res://Assests/Background/backgroud-phase-2.png", 
 	"res://Assests/Background/backgroud-phase-3.png"
 ]
-const PHASE_TIME = [90, 120, 180]
+const PHASE_TIME = [30, 60, 90]
 
 func _ready():
 	start_phase(0)
