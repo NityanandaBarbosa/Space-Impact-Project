@@ -155,4 +155,6 @@ margin_right = 120.501
 margin_bottom = 62.9178
 custom_fonts/font = SubResource( 6 )
 text = "55"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 [connection signal="pressed" from="Panel2/btn_newgame" to="." method="_on_btn_newgame_pressed"]
