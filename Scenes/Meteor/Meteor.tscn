@@ -3,7 +3,9 @@
 [ext_resource path="res://Assests/GamePlayTextures/Estruturas/meteorBig.png" type="Texture" id=1]
 [ext_resource path="res://Script/Meteor.gd" type="Script" id=2]
 
-[node name="Meteor" type="Area2D"]
+[node name="Meteor" type="Area2D" groups=[
+"damageable",
+]]
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
