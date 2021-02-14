@@ -4,6 +4,7 @@ var current_phase = null # 0 - phase 1; 1 - phase 2; 2 - phase 3
 var phase_start_time = null
 var current_time_passed = 0
 
+
 const PHASE_BACKGROUND = [
 	"res://Assests/Background/backgroud-phase-1.png", 
 	"res://Assests/Background/backgroud-phase-2.png", 
