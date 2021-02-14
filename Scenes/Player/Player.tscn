@@ -7,7 +7,9 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 40.0379
 
-[node name="Player" type="Area2D"]
+[node name="Player" type="Area2D" groups=[
+"player",
+]]
 script = ExtResource( 2 )
 fireDelay = 0.35
 

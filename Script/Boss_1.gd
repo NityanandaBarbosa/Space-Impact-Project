@@ -15,15 +15,15 @@ func _physics_process(delta):
 	print(current_time)
 	if (current_time == MOVIMENTATION_TIME):
 		current_time = 0
-		print('ESCOLHI OUTRO LADO')
 		choice = random.randi_range(0, 1)
-		print(choice)
+		#print('ESCOLHI OUTRO LADO')
+		#print(choice)
 	if (choice == 1):
-		print('baixo')
 		position.y += speed * delta
-	elif (choice == 0):
-		print('cima')
+		#print('baixo')
+	elif (choice == 0):		
 		position.y -= speed * delta
+		#print('cima')
 		
 func damage(amount: int):
 	life -= amount
