@@ -24,3 +24,9 @@ func _physics_process(delta):
 	elif (choice == 0):
 		print('cima')
 		position.y -= speed * delta
+		
+func damage(amount: int):
+	life -= amount
+	if life <= 0:
+		queue_free()
+		Global._enemykilled(15)

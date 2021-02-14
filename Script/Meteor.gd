@@ -29,7 +29,7 @@ func damage(amount: int):
 	life -= amount
 	if life <= 0:
 		queue_free()
-		Global._enemykilled()
+		Global._enemykilled(2)
 		
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()

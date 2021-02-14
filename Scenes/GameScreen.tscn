@@ -8,10 +8,10 @@
 [ext_resource path="res://Scenes/Boss_1/Boss_1.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Assests/Fonts/font.otf" type="DynamicFontData" id=7]
 [ext_resource path="res://Assests/Themas/main.tres" type="Theme" id=8]
-[ext_resource path="res://Scenes/GameScore.gd" type="Script" id=9]
+[ext_resource path="res://Script/GameScore.gd" type="Script" id=9]
 
-[sub_resource type="DynamicFont" id=1]
-size = 10
+[sub_resource type="DynamicFont" id=3]
+size = 120
 font_data = ExtResource( 7 )
 
 [sub_resource type="Animation" id=2]
@@ -42,30 +42,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ScorePanel" type="Panel" parent="."]
-margin_left = 1218.0
-margin_top = 9.0
-margin_right = 1280.0
-margin_bottom = 45.0
-theme = ExtResource( 8 )
-
-[node name="Label" type="Label" parent="ScorePanel"]
-margin_left = 3.70044
-margin_top = 8.7247
-margin_right = 58.7004
-margin_bottom = 37.7247
-custom_fonts/font = SubResource( 1 )
-text = "Score
-"
-align = 1
-valign = 1
-script = ExtResource( 9 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Meteor" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1004.09, 356.382 )
+position = Vector2( 1200.42, 114.75 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 47.2101, 389.713 )
@@ -75,7 +53,41 @@ position = Vector2( 1192.32, 333.925 )
 scale = Vector2( 4.5, 4.5 )
 
 [node name="Enemy" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1136.2, 501.172 )
+position = Vector2( 1224.92, 236.887 )
+
+[node name="Control" type="Control" parent="."]
+margin_left = 1131.8
+margin_top = 16.1272
+margin_right = 1251.8
+margin_bottom = 70.1272
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScorePanel" type="Panel" parent="Control"]
+margin_left = -10.0
+margin_top = 1.0
+margin_right = 133.0
+margin_bottom = 37.0
+theme = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Control/ScorePanel"]
+margin_left = 20.9497
+margin_top = -1.41422
+margin_right = 455.95
+margin_bottom = 143.586
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 3 )
+text = "Score"
+align = 1
+valign = 1
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ScreenAnimation" type="AnimationPlayer" parent="."]
 autoplay = "Space"
@@ -84,5 +96,5 @@ anims/Space = SubResource( 2 )
 
 [node name="Music_Player" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
-volume_db = -11.108
+volume_db = -19.186
 autoplay = true
