@@ -3,8 +3,10 @@
 [ext_resource path="res://Assests/GamePlayTextures/Bosses/mage-1-85x94.png" type="Texture" id=1]
 [ext_resource path="res://Script/Boss_1.gd" type="Script" id=2]
 
-[node name="Boss_1" type="Area2D"]
-scale = Vector2( 3, 3 )
+[node name="Boss_1" type="Area2D" groups=[
+"damageable",
+]]
+scale = Vector2( 2.5, 2.5 )
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]

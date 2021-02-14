@@ -20,6 +20,10 @@ run/main_scene="res://Scenes/InitialScreen.tscn"
 boot_splash/image="res://Assests/wallpaperflare.com_wallpaper.png"
 config/icon="res://icon.png"
 
+[autoload]
+
+Global="*res://Script/Global.gd"
+
 [display]
 
 window/size/width=1280
