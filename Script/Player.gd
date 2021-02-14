@@ -45,3 +45,6 @@ func _physics_process(delta):
 	position.y = clamp(position.y,0, viewRect.size.y)
 	position.x = clamp(position.x,0, viewRect.size.x)
 	
+func damage(amount: int):
+	Global._enemykilled(1)
+	

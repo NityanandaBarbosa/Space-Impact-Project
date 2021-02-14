@@ -20,4 +20,11 @@ position = Vector2( 0, 1.41422 )
 shape = SubResource( 1 )
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+
+[node name="FireGun" type="Node2D" parent="."]
+position = Vector2( -62.2254, -2.82843 )
+
+[node name="FireDelayTimer" type="Timer" parent="."]
+autostart = true
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
+[connection signal="timeout" from="FireDelayTimer" to="." method="_on_FireDelayTimer_timeout"]
