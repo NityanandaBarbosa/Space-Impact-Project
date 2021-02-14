@@ -40,7 +40,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Panel" type="Panel" parent="."]
+[node name="TitleLabel" type="Panel" parent="."]
 margin_left = 490.261
 margin_top = 245.475
 margin_right = 890.261
@@ -50,7 +50,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label3" type="Label" parent="Panel"]
+[node name="Label3" type="Label" parent="TitleLabel"]
 margin_left = 123.299
 margin_top = 52.5073
 margin_right = 331.299
@@ -61,10 +61,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="Panel"]
-margin_left = 21.4778
+[node name="Label" type="Label" parent="TitleLabel"]
+margin_left = 20.143
 margin_top = 10.4478
-margin_right = 568.478
+margin_right = 567.143
 margin_bottom = 83.4478
 custom_fonts/font = SubResource( 2 )
 text = "Space Impact"
@@ -72,7 +72,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Panel2" type="Panel" parent="."]
+[node name="ButtonsContainer" type="Panel" parent="."]
 margin_left = 602.804
 margin_top = 374.672
 margin_right = 773.804
@@ -82,14 +82,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="btn_newgame" type="Button" parent="Panel2"]
+[node name="btn_newgame" type="Button" parent="ButtonsContainer"]
 anchor_left = 0.491
 anchor_top = 0.236
 anchor_right = 0.5
 anchor_bottom = 0.236
-margin_left = -68.961
+margin_left = -70.2958
 margin_top = -25.184
-margin_right = 70.5
+margin_right = 69.1652
 margin_bottom = 15.816
 custom_fonts/font = SubResource( 3 )
 text = "New Game "
@@ -97,7 +97,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button2" type="Button" parent="Panel2"]
+[node name="Button2" type="Button" parent="ButtonsContainer"]
 anchor_left = 0.491
 anchor_top = 0.236
 anchor_right = 0.491
@@ -112,7 +112,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button3" type="Button" parent="Panel2"]
+[node name="Button3" type="Button" parent="ButtonsContainer"]
 anchor_left = 0.491
 anchor_top = 0.236
 anchor_right = 0.491
@@ -127,7 +127,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Panel3" type="Panel" parent="."]
+[node name="ScorePainel" type="Panel" parent="."]
 margin_left = 1097.18
 margin_top = 67.1651
 margin_right = 1230.18
@@ -137,7 +137,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="scoreStar" type="TextureRect" parent="Panel3"]
+[node name="HighScoreStar" type="TextureRect" parent="ScorePainel"]
 margin_left = 4.33643
 margin_top = 19.1001
 margin_right = 65.3364
@@ -149,14 +149,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HighScore" type="Label" parent="Panel3"]
-margin_left = 72.5009
+[node name="HighScoreLabel" type="Label" parent="ScorePainel"]
+margin_left = 73.8357
 margin_top = 31.9178
-margin_right = 120.501
+margin_right = 121.836
 margin_bottom = 62.9178
 custom_fonts/font = SubResource( 6 )
 text = "55"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
-[connection signal="pressed" from="Panel2/btn_newgame" to="." method="_on_btn_newgame_pressed"]
+[connection signal="pressed" from="ButtonsContainer/btn_newgame" to="." method="_on_btn_newgame_pressed"]
