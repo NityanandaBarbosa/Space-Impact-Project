@@ -26,5 +26,6 @@ position = Vector2( -62.2254, -2.82843 )
 
 [node name="FireDelayTimer" type="Timer" parent="."]
 autostart = true
+[connection signal="area_entered" from="." to="." method="_on_Enemy_area_entered"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
 [connection signal="timeout" from="FireDelayTimer" to="." method="_on_FireDelayTimer_timeout"]

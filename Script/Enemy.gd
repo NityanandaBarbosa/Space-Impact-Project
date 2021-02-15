@@ -45,4 +45,9 @@ func _on_VisibilityNotifier2D_screen_exited():
 func _on_FireDelayTimer_timeout():
 	if timer == true:
 		timer = false
-	print("Timer") # Replace with function body.
+	print("Timer")
+
+
+func _on_Enemy_area_entered(area):
+	if area.is_in_group("player"):
+		queue_free()
