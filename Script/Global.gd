@@ -3,7 +3,7 @@ extends Node
 var score : int = 0
 
 func _ready():
-	pass # Replace with function body.
+	pass 
 
 func _enemykilled(points):
 	score += points

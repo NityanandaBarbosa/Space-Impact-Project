@@ -1,6 +1,6 @@
 extends Node2D
 
-var current_phase = null # 0 - phase 1; 1 - phase 2; 2 - phase 3
+var current_phase = null 
 var phase_start_time = null
 var current_time_passed = 0
 
