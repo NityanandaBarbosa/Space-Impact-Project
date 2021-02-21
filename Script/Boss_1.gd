@@ -49,6 +49,9 @@ func process_boss(delta):
 	elif (choice == 0):		
 		position.y -= speed * delta
 		#print('cima')
+
+	var viewRect := get_viewport_rect()
+	position.y = clamp(position.y,0, viewRect.size.y)
 		
 func damage(amount: int):
 	if($".".is_visible_in_tree()):

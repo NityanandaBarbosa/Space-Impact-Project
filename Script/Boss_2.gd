@@ -49,6 +49,9 @@ func process_boss(delta):
 	elif (choice == 0):		
 		position.y -= speed * delta
 		#print('cima')
+	
+	var viewRect := get_viewport_rect()
+	position.y = clamp(position.y,0, viewRect.size.y)
 		
 func _on_FireDelayerTimer_timeout():
 	if timer == true:

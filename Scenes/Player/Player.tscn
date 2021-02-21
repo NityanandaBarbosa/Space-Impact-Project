@@ -1,11 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Assests/GamePlayTextures/Naves/Player_Sheet_1.png" type="Texture" id=1]
 [ext_resource path="res://Script/Player.gd" type="Script" id=2]
 [ext_resource path="res://Assests/SoundEffects/sfx/Shot_lazer.wav" type="AudioStream" id=3]
-
-[sub_resource type="CircleShape2D" id=1]
-radius = 40.0379
 
 [node name="Player" type="Area2D" groups=[
 "player",
@@ -19,9 +16,8 @@ scale = Vector2( 1.597, 1.597 )
 texture = ExtResource( 1 )
 vframes = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -10.6655, 1.95623 )
-shape = SubResource( 1 )
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 19.5138, -14.4949, 46.5443, -7.48699, 48.5466, -0.479073, 46.8781, 5.86143, 33.8633, 10.5334, 27.8566, 11.8682, 19.5138, 15.8727, 17.1778, 19.2098, 12.8396, 18.8761, 11.8385, 22.5469, 8.16763, 23.8818, 8.50134, 27.5526, 8.16763, 31.8908, -5.18077, 32.892, -15.8595, 45.573, -19.864, 46.5741, -32.2113, 42.9033, -35.8821, 36.8965, -30.2091, 30.2223, -31.2102, 24.8829, -40.2204, 29.2212, -47.2283, 19.8773, -42.2226, 7.86369, -39.5529, 0.188347, -43.2238, -12.1589, -47.562, -17.1646, -45.8934, -23.1714, -39.5529, -26.1748, -32.2113, -23.8388, -30.5428, -26.8422, -32.8787, -32.849, -34.881, -41.1917, -28.5405, -45.8637, -19.1966, -47.5322, -7.85046, -33.5164, 5.49796, -31.1804, 10.5036, -22.1702 )
 
 [node name="FireGun" type="Node2D" parent="."]
 position = Vector2( 77.9811, -0.396851 )

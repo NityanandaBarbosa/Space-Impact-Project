@@ -61,6 +61,7 @@ visible = false
 position = Vector2( 1196, 334 )
 
 [node name="Boss_3" parent="." instance=ExtResource( 11 )]
+visible = false
 position = Vector2( 1182, 354 )
 
 [node name="Enemy" parent="." instance=ExtResource( 2 )]
