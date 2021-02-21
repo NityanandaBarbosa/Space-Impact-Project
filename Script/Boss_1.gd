@@ -1,6 +1,6 @@
 extends Area2D
 
-signal boss_killed
+signal boss_killed(phase)
 
 var show_boss = false
 var speed: float = 100
@@ -9,6 +9,7 @@ var choice = 0
 var random = RandomNumberGenerator.new()
 var current_time = 0
 const MOVIMENTATION_TIME = 100
+const phase = 0
 
 func _ready():
 	$".".visible = false
@@ -18,8 +19,9 @@ func _physics_process(delta):
 		process_boss(delta)
 	
 func process_boss(delta):
+	# print("1: ", life)
 	current_time += 1
-	print(current_time)
+	# sprint(current_time)
 	if (current_time == MOVIMENTATION_TIME):
 		current_time = 0
 		choice = random.randi_range(0, 1)
@@ -33,11 +35,12 @@ func process_boss(delta):
 		#print('cima')
 		
 func damage(amount: int):
-	life -= amount
-	if life <= 0:
-		queue_free()
-		Global._enemykilled(15)
-		emit_signal("boss_killed")
+	if($".".is_visible_in_tree()):
+		life -= amount
+		if life <= 0:
+			queue_free()
+			Global._enemykilled(15)
+			emit_signal("boss_killed", phase)
 
 func _on_GameScreen_boss_fight_start(phase_number):
 	if (phase_number == 0):

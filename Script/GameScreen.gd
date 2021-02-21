@@ -8,6 +8,12 @@ var current_phase = null
 var phase_start_time = null
 var current_time_passed = 0
 var boss_fight = false
+const  window_size = Vector2(5000,720) #ajustar
+var location = Vector2()
+var packed_scene = [
+	preload('res://Scenes/Meteor/Meteor.tscn'),
+	preload('res://Scenes/Enemy Nave/Enemy.tscn')
+]
 
 const PHASE_BACKGROUND = [
 	"res://Assests/Background/backgroud-phase-1.png", 
@@ -50,9 +56,10 @@ func _process(delta):
 	
 	
 func start_phase(phase_number):
-	current_phase = phase_number
-	$background.texture = load(PHASE_BACKGROUND[current_phase])
-	phase_start_time = OS.get_system_time_secs()
+	if (phase_number <= 2):
+		current_phase = phase_number
+		$background.texture = load(PHASE_BACKGROUND[current_phase])
+		phase_start_time = OS.get_system_time_secs()
 
 func process_frame():
 	current_time_passed = OS.get_system_time_secs() - phase_start_time
@@ -64,7 +71,6 @@ func spawn_boss(phase_number):
 	emit_signal("boss_fight_start", phase_number)
 	boss_fight = true
 
-func _on_Boss_1_boss_killed():
-	emit_signal("boss_fight_ends", current_phase)
-	start_phase(current_phase + 1)
+func _on_Boss_boss_killed(phase):
+	start_phase(phase + 1)
 	boss_fight = false

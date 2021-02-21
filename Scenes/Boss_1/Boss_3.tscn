@@ -3,7 +3,9 @@
 [ext_resource path="res://Assests/GamePlayTextures/Bosses/mage-3-87x110.png" type="Texture" id=1]
 [ext_resource path="res://Script/Boss_3.gd" type="Script" id=2]
 
-[node name="Boss_3" type="Area2D"]
+[node name="Boss_3" type="Area2D" groups=[
+"damageable",
+]]
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
