@@ -8,6 +8,7 @@
 ]]
 scale = Vector2( 2, 2 )
 script = ExtResource( 2 )
+fireDelay = null
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )

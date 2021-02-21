@@ -1,11 +1,15 @@
 extends Area2D
 
+signal boss_killed(phase)
+
+var show_boss = false
 var speed: float = 100
 var life: float = 100
 var choice = 0
 var random = RandomNumberGenerator.new()
 var current_time = 0
 const MOVIMENTATION_TIME = 100
+const phase = 2
 
 onready var gunsPositions := $gunsPosition
 onready var gun1:= $"gunsPosition/DownGun"
@@ -15,7 +19,7 @@ export var fireDelay: float = 0.3
 var plBullet := preload("res://Scenes/Boss_1/Boss_3_Bullet.tscn")
 
 func _ready():
-	pass
+	$".".visible = false
 	
 func _process(delta):
 	if $".".is_visible_in_tree() == true:
@@ -29,8 +33,13 @@ func _process(delta):
 			timer = true
 	
 func _physics_process(delta):
+	if (show_boss):
+		process_boss(delta)
+	
+func process_boss(delta):
+	# print("3: ", life)
 	current_time += 1
-	print(current_time)
+	# print(current_time)
 	if (current_time == MOVIMENTATION_TIME):
 		current_time = 0
 		choice = random.randi_range(0, 1)
@@ -44,12 +53,14 @@ func _physics_process(delta):
 		#print('cima')
 		
 func damage(amount: int):
-	life -= amount
-	if life <= 0:
-		queue_free()
-		Global._enemykilled(15)
+	if($".".is_visible_in_tree()):
+		life -= amount
+		if life <= 0:
+			queue_free()
+			Global._enemykilled(15)
+			emit_signal("boss_killed", phase)
 
-
-func _on_FireDelayerTimer_timeout():
-	if timer == true:
-		timer = false
+func _on_GameScreen_boss_fight_start(phase_number):
+	if (phase_number == 2):
+		show_boss = true
+		$".".visible = true

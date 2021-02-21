@@ -52,10 +52,12 @@ position = Vector2( 47.2101, 389.713 )
 visible = false
 position = Vector2( 1192.32, 333.925 )
 scale = Vector2( 4.5, 4.5 )
+fireDelay = null
 
 [node name="Boss_2" parent="." instance=ExtResource( 10 )]
 visible = false
 position = Vector2( 1196, 334 )
+fireDelay = null
 
 [node name="Boss_3" parent="." instance=ExtResource( 11 )]
 position = Vector2( 1182, 354 )
