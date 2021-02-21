@@ -11,8 +11,26 @@ var current_time = 0
 const MOVIMENTATION_TIME = 100
 const phase = 2
 
+onready var gunsPositions := $gunsPosition
+onready var gun1:= $"gunsPosition/DownGun"
+onready var gun2:= $"gunsPosition/UpGun"
+var timer = false
+export var fireDelay: float = 0.3
+var plBullet := preload("res://Scenes/Boss_1/Boss_3_Bullet.tscn")
+
 func _ready():
 	$".".visible = false
+	
+func _process(delta):
+	if $".".is_visible_in_tree() == true:
+		if timer == false:
+			$FireDelayerTimer.wait_time = fireDelay
+			$FireDelayerTimer.start()
+			for child in gunsPositions.get_children():
+					var bulllet := plBullet.instance()
+					bulllet.global_position = child.global_position
+					get_tree().current_scene.add_child(bulllet)
+			timer = true
 	
 func _physics_process(delta):
 	if (show_boss):
@@ -46,3 +64,9 @@ func _on_GameScreen_boss_fight_start(phase_number):
 	if (phase_number == 2):
 		show_boss = true
 		$".".visible = true
+
+
+func _on_FireDelayerTimer_timeout():
+	if timer == true:
+		timer = false
+
