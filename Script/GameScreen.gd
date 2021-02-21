@@ -9,7 +9,8 @@ var location = Vector2()
 
 
 var packed_scene = [
-	preload('res://Scenes/Meteor/Meteor.tscn')
+	preload('res://Scenes/Meteor/Meteor.tscn'),
+	preload('res://Scenes/Enemy Nave/Enemy.tscn')
 ]
 
 const PHASE_BACKGROUND = [
