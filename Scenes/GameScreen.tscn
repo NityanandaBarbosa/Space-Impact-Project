@@ -32,7 +32,9 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( -1277.5, 0 ) ]
 }
 
-[node name="GameScreen" type="Node2D"]
+[node name="GameScreen" type="Area2D" groups=[
+"GameScreen",
+]]
 script = ExtResource( 3 )
 
 [node name="background" type="TextureRect" parent="."]
@@ -118,3 +120,6 @@ anims/Space = SubResource( 2 )
 stream = ExtResource( 5 )
 volume_db = -25.349
 autoplay = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -3.71815, 716.598, 1281.48, 726.122, 1279.9, 0.680054, -1.27765, -0.907349 )
