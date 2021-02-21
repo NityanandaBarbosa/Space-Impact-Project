@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Enemy Nave/Enemy.tscn" type="PackedScene" id=2]
@@ -9,8 +9,10 @@
 [ext_resource path="res://Assests/Fonts/font.otf" type="DynamicFontData" id=7]
 [ext_resource path="res://Assests/Themas/main.tres" type="Theme" id=8]
 [ext_resource path="res://Script/GameScore.gd" type="Script" id=9]
+[ext_resource path="res://Scenes/Boss_1/Boss_2.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Boss_1/Boss_3.tscn" type="PackedScene" id=11]
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=1]
 size = 120
 font_data = ExtResource( 7 )
 
@@ -52,6 +54,12 @@ position = Vector2( 47.2101, 389.713 )
 position = Vector2( 1192.32, 333.925 )
 scale = Vector2( 4.5, 4.5 )
 
+[node name="Boss_2" parent="." instance=ExtResource( 10 )]
+position = Vector2( 911.783, 349.233 )
+
+[node name="Boss_3" parent="." instance=ExtResource( 11 )]
+position = Vector2( 596.528, 368.111 )
+
 [node name="Enemy" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1224.92, 236.887 )
 
@@ -80,7 +88,7 @@ margin_top = -1.41422
 margin_right = 455.95
 margin_bottom = 143.586
 rect_scale = Vector2( 0.25, 0.25 )
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 1 )
 text = "Score"
 align = 1
 valign = 1
