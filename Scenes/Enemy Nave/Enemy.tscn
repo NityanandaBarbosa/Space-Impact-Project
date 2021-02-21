@@ -1,10 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Script/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://Assests/GamePlayTextures/Naves/Enemy01_Green_Frame_1_png_processed.png" type="Texture" id=2]
-
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 22.4231
 
 [node name="Enemy" type="Area2D" groups=[
 "damageable",
@@ -15,9 +12,9 @@ script = ExtResource( 1 )
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
 position = Vector2( 0, 1.41422 )
-shape = SubResource( 1 )
+polygon = PoolVector2Array( -4.57542, -32.4135, 2.95623, -33.8009, 7.91125, -23.2962, 13.2627, -22.5034, 13.2627, -19.9268, 13.0645, -15.9628, 16.0375, -10.4131, 22.7763, -13.9808, 26.5422, -10.4131, 23.7674, -4.07069, 25.1548, -1.69228, 24.362, -0.701279, 23.5692, 1.08254, 25.9476, 5.04656, 25.5512, 7.82138, 22.1817, 10.398, 17.6231, 7.82138, 12.6681, 12.5782, 13.2627, 16.344, 12.6681, 18.9206, 8.30766, 20.3081, 2.95623, 30.4163, -5.96282, 29.4253, -4.17902, 23.4793, -3.98081, 20.3081, -7.15203, 17.9296, -6.75563, 15.1548, -15.0801, 14.5602, -17.8549, 11.389, -17.2603, 8.81238, -16.2693, 7.22677, -24.3955, 3.46095, -26.5757, -0.701279, -26.3775, -5.0617, -16.6657, -9.62033, -17.6567, -13.9808, -16.2693, -16.161, -11.5125, -17.7466, -8.34124, -17.9448, -7.35023, -17.9448, -8.34124, -20.125, -5.56642, -22.107, -4.57542, -25.4764 )
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 
