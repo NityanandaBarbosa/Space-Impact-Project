@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assests/GamePlayTextures/Efeitos/laserRedShot.png" type="Texture" id=1]
+[ext_resource path="res://Script/Boss_3_Bullet.gd" type="Script" id=2]
+
+[node name="Boss_3_Bullet" type="Area2D"]
+position = Vector2( 1.84761, 0.280931 )
+scale = Vector2( 2, 2 )
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, 0.187294 )
+rotation = -1.5708
+texture = ExtResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -23.6367, -1.8804, -12.4234, -2.69935, -10.4076, -6.47911, -14.4393, -13.0307, -13.4944, -14.2276, -9.90359, -12.5897, -7.06877, -10.3849, -3.72998, -11.0148, -1.33613, -27.0898, 1.05772, -27.2158, 2.63262, -23.058, 3.57756, -11.9077, 6.85336, -9.82885, 13.5939, -14.3646, 14.4759, -12.2227, 10.1921, -6.93104, 11.767, -3.18653, 27.6421, -0.918672, 27.5791, 1.66417, 12.082, 3.80603, 11.2631, 6.13688, 10.8221, 7.14482, 14.5389, 13.2554, 13.216, 14.8303, 9.3732, 12.9405, 7.35732, 10.0426, 7.84903, 10.6537, 7.23133, 10.4206, 7.42032, 10.1686, 7.46174, 10.0336, 6.79845, 10.544, 5.84708, 11.6738, 3.46867, 12.09, 3.29029, 16.609, 3.11191, 22.7334, 0.376733, 27.0145, -0.871936, 27.0145, -2.53683, 19.9982, -3.04947, 12.0938, -4.73126, 11.2949, -6.79146, 10.5381, -13.0561, 14.6164, -14.3595, 13.3971, -13.1823, 11.2949, -11.4584, 9.06653, -10.7225, 6.1201, -11.8565, 4.5452, -12.0455, 3.72625, -27.2275, 1.20641, -26.4716, -1.37643 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( -1.875, 0.749999 )
+scale = Vector2( 0.9825, 0.44 )
+[connection signal="area_entered" from="." to="." method="_on_Boss_3_Bullet_area_entered"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

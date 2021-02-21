@@ -7,8 +7,26 @@ var random = RandomNumberGenerator.new()
 var current_time = 0
 const MOVIMENTATION_TIME = 100
 
+onready var gunsPositions := $gunsPosition
+onready var gun1:= $"gunsPosition/DownGun"
+onready var gun2:= $"gunsPosition/UpGun"
+var timer = false
+export var fireDelay: float = 0.3
+var plBullet := preload("res://Scenes/Boss_1/Boss_3_Bullet.tscn")
+
 func _ready():
 	pass
+	
+func _process(delta):
+	if $".".is_visible_in_tree() == true:
+		if timer == false:
+			$FireDelayerTimer.wait_time = fireDelay
+			$FireDelayerTimer.start()
+			for child in gunsPositions.get_children():
+					var bulllet := plBullet.instance()
+					bulllet.global_position = child.global_position
+					get_tree().current_scene.add_child(bulllet)
+			timer = true
 	
 func _physics_process(delta):
 	current_time += 1
@@ -30,3 +48,8 @@ func damage(amount: int):
 	if life <= 0:
 		queue_free()
 		Global._enemykilled(15)
+
+
+func _on_FireDelayerTimer_timeout():
+	if timer == true:
+		timer = false
