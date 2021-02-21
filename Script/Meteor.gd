@@ -36,4 +36,5 @@ func _on_VisibilityNotifier2D_screen_exited():
 
 func _on_Meteor_area_entered(area):
 	if area.is_in_group("player"):
+		Global.life -= 1
 		queue_free()

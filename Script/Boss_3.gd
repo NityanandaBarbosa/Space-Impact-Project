@@ -9,7 +9,7 @@ var choice = 0
 var random = RandomNumberGenerator.new()
 var current_time = 0
 const MOVIMENTATION_TIME = 100
-const phase = 0
+const phase = 2
 
 func _ready():
 	$".".visible = false
@@ -19,9 +19,9 @@ func _physics_process(delta):
 		process_boss(delta)
 	
 func process_boss(delta):
-	# print("1: ", life)
+	# print("3: ", life)
 	current_time += 1
-	# sprint(current_time)
+	# print(current_time)
 	if (current_time == MOVIMENTATION_TIME):
 		current_time = 0
 		choice = random.randi_range(0, 1)
@@ -43,6 +43,6 @@ func damage(amount: int):
 			emit_signal("boss_killed", phase)
 
 func _on_GameScreen_boss_fight_start(phase_number):
-	if (phase_number == 0):
+	if (phase_number == 2):
 		show_boss = true
 		$".".visible = true
