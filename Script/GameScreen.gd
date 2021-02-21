@@ -1,5 +1,9 @@
 extends Node2D
 
+var ms = 0
+var s = 0
+var m = 0
+
 signal boss_fight_start(phase_number)
 signal boss_fight_ends(phase_number)
 signal phase_change(phase_number)
@@ -24,12 +28,14 @@ const PHASE_TIME = [60, 90, 120]
 
 var rng = RandomNumberGenerator.new()
 
+
+
 func _ready():
 	
 	start_phase(0)
 	rng.randomize()
 	
-	var NumberOfMeteros = rng.randf_range(20, 40)
+	var NumberOfMeteros = rng.randf_range(20, 30)
 	
 	for i in range(NumberOfMeteros):
 		
@@ -37,7 +43,7 @@ func _ready():
 		randomize()
 		var x = randi() % packed_scene.size() 
 		
-		location.x = rand_range(1,window_size.x)
+		location.x = rand_range(1240,window_size.x)
 		location.y = rand_range(1,window_size.y)
 		
 		var scene =  packed_scene[x].instance()
@@ -47,7 +53,18 @@ func _ready():
 		add_child(scene)
 
 func _process(delta):
+	
+	
+	print(s)
 	process_frame()
+	
+	pass
+	
+	
+func _on_ms_timeout():
+		ms += 1
+	
+	
 	
 	
 	
