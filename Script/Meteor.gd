@@ -1,7 +1,7 @@
 extends Area2D
 
-export var minSpeed: float = -300
-export var maxSpeed: float = -100
+export var minSpeed: float = -400
+export var maxSpeed: float = -150
 export var minRotationRate: float = -255
 export var maxRotationRate: float = 255
 
