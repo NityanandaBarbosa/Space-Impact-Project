@@ -11,8 +11,6 @@
 [ext_resource path="res://Script/GameScore.gd" type="Script" id=9]
 [ext_resource path="res://Scenes/Boss_1/Boss_2.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Boss_1/Boss_3.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Scenes/LifeContainer.gd" type="Script" id=10]
-
 
 [sub_resource type="DynamicFont" id=1]
 size = 120
@@ -37,9 +35,9 @@ tracks/0/keys = {
 script = ExtResource( 3 )
 
 [node name="background" type="TextureRect" parent="."]
-margin_left = -1.10553
+margin_left = -2.51978
 margin_top = 1.57491
-margin_right = 2553.89
+margin_right = 2552.48
 margin_bottom = 721.575
 expand = true
 __meta__ = {
@@ -57,10 +55,10 @@ position = Vector2( 1192.32, 333.925 )
 scale = Vector2( 4.5, 4.5 )
 
 [node name="Boss_2" parent="." instance=ExtResource( 10 )]
-position = Vector2( 1193.06, 334.131 )
+position = Vector2( 1196, 334 )
 
 [node name="Boss_3" parent="." instance=ExtResource( 11 )]
-position = Vector2( 1193.06, 330.356 )
+position = Vector2( 1182, 354 )
 
 [node name="Enemy" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1224.92, 236.887 )
@@ -95,19 +93,6 @@ text = "Score"
 align = 1
 valign = 1
 script = ExtResource( 9 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-margin_left = 31.0
-margin_top = 30.0
-margin_right = 223.0
-margin_bottom = 82.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_constants/separation = 60
-script = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
