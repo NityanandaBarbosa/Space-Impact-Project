@@ -16,11 +16,38 @@ const PHASE_BACKGROUND = [
 ]
 const PHASE_TIME = [60, 90, 120]
 
+var rng = RandomNumberGenerator.new()
+
 func _ready():
+	
 	start_phase(0)
+	rng.randomize()
+	
+	var NumberOfMeteros = rng.randf_range(20, 40)
+	
+	for i in range(NumberOfMeteros):
+		
+		
+		randomize()
+		var x = randi() % packed_scene.size() 
+		
+		location.x = rand_range(1,window_size.x)
+		location.y = rand_range(1,window_size.y)
+		
+		var scene =  packed_scene[x].instance()
+		scene.position = location
+	
+		
+		add_child(scene)
 
 func _process(delta):
 	process_frame()
+	
+	
+	
+	#onready var fireDelayTimer := $FireDelayerTimer
+	
+	
 	
 func start_phase(phase_number):
 	current_phase = phase_number

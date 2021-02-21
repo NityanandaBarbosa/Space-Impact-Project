@@ -1,7 +1,7 @@
 extends Area2D
 
-export var minSpeed: float = -300
-export var maxSpeed: float = -100
+export var minSpeed: float = -200
+export var maxSpeed: float = -150
 export var minRotationRate: float = -255
 export var maxRotationRate: float = 255
 
@@ -36,4 +36,5 @@ func _on_VisibilityNotifier2D_screen_exited():
 
 func _on_Meteor_area_entered(area):
 	if area.is_in_group("player"):
+		Global.life -= 1
 		queue_free()
