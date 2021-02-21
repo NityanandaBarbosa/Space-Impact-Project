@@ -6,6 +6,7 @@ export var minSpeed: float = -300
 export var maxSpeed: float = -100
 export var life: int = 20
 export var fireDelay: float = 1.2
+var shotControl = false
 
 var speed: float = 0
 var rotationRate: float = 0
@@ -22,12 +23,13 @@ func _ready():
 	
 func _process(delta):
 	if timer == false:
-		$FireDelayTimer.wait_time = fireDelay
-		$FireDelayTimer.start()
-		var bulllet := plBullet.instance()
-		bulllet.global_position = normalGun.global_position
-		get_tree().current_scene.add_child(bulllet)
-		timer = true
+		if shotControl == true:
+			$FireDelayTimer.wait_time = fireDelay
+			$FireDelayTimer.start()
+			var bulllet := plBullet.instance()
+			bulllet.global_position = normalGun.global_position
+			get_tree().current_scene.add_child(bulllet)
+			timer = true
 	
 func _physics_process(delta):
 	position.x  += speed * delta
@@ -45,10 +47,13 @@ func _on_VisibilityNotifier2D_screen_exited():
 func _on_FireDelayTimer_timeout():
 	if timer == true:
 		timer = false
-	print("Timer")
 
 
 func _on_Enemy_area_entered(area):
 	if area.is_in_group("player"):
 		Global.life -= 1
 		queue_free()
+	else:
+		if area.is_in_group("GameScreen"):
+			print("To dentro")
+			shotControl = true
