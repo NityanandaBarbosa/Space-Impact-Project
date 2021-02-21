@@ -6,7 +6,7 @@
 [node name="Boss_1" type="Area2D" groups=[
 "damageable",
 ]]
-scale = Vector2( 2.5, 2.5 )
+scale = Vector2( 2, 2 )
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]

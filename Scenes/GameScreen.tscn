@@ -55,10 +55,10 @@ position = Vector2( 1192.32, 333.925 )
 scale = Vector2( 4.5, 4.5 )
 
 [node name="Boss_2" parent="." instance=ExtResource( 10 )]
-position = Vector2( 911.783, 349.233 )
+position = Vector2( 1193.06, 334.131 )
 
 [node name="Boss_3" parent="." instance=ExtResource( 11 )]
-position = Vector2( 596.528, 368.111 )
+position = Vector2( 1193.06, 330.356 )
 
 [node name="Enemy" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1224.92, 236.887 )
