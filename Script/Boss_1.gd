@@ -1,12 +1,9 @@
 extends Area2D
 
-<<<<<<< HEAD
 
-=======
 signal boss_killed(phase)
 
 var show_boss = false
->>>>>>> c3d835e540c96590b067cbc258f9df6557fd3ae5
 var speed: float = 100
 var life: float = 100
 var timer = false
@@ -65,3 +62,8 @@ func _on_GameScreen_boss_fight_start(phase_number):
 	if (phase_number == 0):
 		show_boss = true
 		$".".visible = true
+
+
+func _on_FireDelayerTimer_timeout():
+	if timer == true:
+		timer = false

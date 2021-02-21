@@ -64,3 +64,9 @@ func _on_GameScreen_boss_fight_start(phase_number):
 	if (phase_number == 2):
 		show_boss = true
 		$".".visible = true
+
+
+func _on_FireDelayerTimer_timeout():
+	if timer == true:
+		timer = false
+

@@ -16,7 +16,6 @@ const MOVIMENTATION_TIME = 100
 const phase = 1
 
 func _ready():
-<<<<<<< HEAD
 	pass
 
 func _process(delta):
@@ -29,10 +28,8 @@ func _process(delta):
 			get_tree().current_scene.add_child(bulllet)
 			timer = true
 
-=======
 	$".".visible = false
 	
->>>>>>> c3d835e540c96590b067cbc258f9df6557fd3ae5
 func _physics_process(delta):
 	if (show_boss):
 		process_boss(delta)
@@ -53,18 +50,11 @@ func process_boss(delta):
 		position.y -= speed * delta
 		#print('cima')
 		
-func damage(amount: int):
-<<<<<<< HEAD
-	life -= amount
-	if life <= 0:
-		queue_free()
-		Global._enemykilled(15)
-
-
 func _on_FireDelayerTimer_timeout():
 	if timer == true:
 		timer = false
-=======
+		
+func damage(amount: int):
 	if($".".is_visible_in_tree()):
 		life -= amount
 		if life <= 0:
@@ -76,4 +66,3 @@ func _on_GameScreen_boss_fight_start(phase_number):
 	if (phase_number == 1):
 		show_boss = true
 		$".".visible = true
->>>>>>> c3d835e540c96590b067cbc258f9df6557fd3ae5

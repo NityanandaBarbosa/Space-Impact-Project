@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Enemy Nave/Enemy.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Script/GameScore.gd" type="Script" id=9]
 [ext_resource path="res://Scenes/Boss_1/Boss_2.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Boss_1/Boss_3.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Script/LifeContainer.gd" type="Script" id=12]
 
 [sub_resource type="DynamicFont" id=1]
 size = 120
@@ -52,12 +53,10 @@ position = Vector2( 47.2101, 389.713 )
 visible = false
 position = Vector2( 1192.32, 333.925 )
 scale = Vector2( 4.5, 4.5 )
-fireDelay = null
 
 [node name="Boss_2" parent="." instance=ExtResource( 10 )]
 visible = false
 position = Vector2( 1196, 334 )
-fireDelay = null
 
 [node name="Boss_3" parent="." instance=ExtResource( 11 )]
 position = Vector2( 1182, 354 )
@@ -95,6 +94,17 @@ text = "Score"
 align = 1
 valign = 1
 script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_left = 36.5446
+margin_top = 30.1056
+margin_right = 272.545
+margin_bottom = 100.106
+custom_constants/separation = 60
+script = ExtResource( 12 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
