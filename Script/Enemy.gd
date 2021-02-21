@@ -50,4 +50,5 @@ func _on_FireDelayTimer_timeout():
 
 func _on_Enemy_area_entered(area):
 	if area.is_in_group("player"):
+		Global.life -= 1
 		queue_free()
