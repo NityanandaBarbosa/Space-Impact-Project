@@ -32,7 +32,9 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( -1277.5, 0 ) ]
 }
 
-[node name="GameScreen" type="Node2D"]
+[node name="GameScreen" type="Area2D" groups=[
+"GameScreen",
+]]
 script = ExtResource( 3 )
 
 [node name="background" type="TextureRect" parent="."]
@@ -60,6 +62,7 @@ visible = false
 position = Vector2( 1196, 334 )
 
 [node name="Boss_3" parent="." instance=ExtResource( 11 )]
+visible = false
 position = Vector2( 1182, 354 )
 
 [node name="Enemy" parent="." instance=ExtResource( 2 )]
@@ -119,9 +122,14 @@ anims/Space = SubResource( 2 )
 stream = ExtResource( 5 )
 volume_db = -25.349
 autoplay = true
+
 [connection signal="boss_fight_start" from="." to="Boss_2" method="_on_GameScreen_boss_fight_start"]
 [connection signal="boss_fight_start" from="." to="Boss_3" method="_on_GameScreen_boss_fight_start"]
 [connection signal="boss_fight_start" from="." to="Boss_1" method="_on_GameScreen_boss_fight_start"]
 [connection signal="boss_killed" from="Boss_1" to="." method="_on_Boss_boss_killed"]
 [connection signal="boss_killed" from="Boss_2" to="." method="_on_Boss_boss_killed"]
 [connection signal="boss_killed" from="Boss_3" to="." method="_on_Boss_boss_killed"]
+
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -3.71815, 716.598, 1281.48, 726.122, 1279.9, 0.680054, -1.27765, -0.907349 )

@@ -55,7 +55,7 @@ func _ready():
 func _process(delta):
 	
 	
-	print(s)
+	#print(s)
 	process_frame()
 	
 	pass
