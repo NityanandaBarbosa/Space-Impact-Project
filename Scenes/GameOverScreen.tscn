@@ -1,0 +1,74 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Assests/Fonts/font.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://Assests/Themas/main.tres" type="Theme" id=2]
+[ext_resource path="res://Assests/Fonts/font.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Script/GameOverScreen.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 45
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 80
+font_data = ExtResource( 1 )
+
+[node name="GameOver" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="background" type="TextureRect" parent="."]
+margin_left = 3.17834
+margin_right = 1283.18
+margin_bottom = 720.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = 279.439
+margin_top = 246.963
+margin_right = 1062.44
+margin_bottom = 462.963
+theme = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Panel"]
+margin_left = 293.905
+margin_top = 233.303
+margin_right = 470.905
+margin_bottom = 295.303
+theme = ExtResource( 2 )
+custom_fonts/font = SubResource( 1 )
+text = "Menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Panel"]
+margin_left = 260.024
+margin_top = 119.749
+margin_right = 544.024
+margin_bottom = 174.749
+custom_fonts/font = SubResource( 2 )
+text = "You Lose."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="Label" parent="Panel"]
+margin_left = 69.7273
+margin_top = 23.8029
+margin_right = 878.727
+margin_bottom = 143.803
+custom_fonts/font = SubResource( 3 )
+text = "Game Over !!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Panel/Button" to="." method="_on_Button_pressed"]
