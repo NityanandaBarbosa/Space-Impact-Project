@@ -17,7 +17,7 @@ const MOVIMENTATION_TIME = 100
 const phase = 0
 
 func _ready():
-	pass
+	$".".visible = false
 
 func _process(delta):
 	if $".".is_visible_in_tree() == true:
@@ -28,7 +28,6 @@ func _process(delta):
 			bulllet.global_position = normalGun.global_position
 			get_tree().current_scene.add_child(bulllet)
 			timer = true
-	$".".visible = false
 	
 func _physics_process(delta):
 	if (show_boss):

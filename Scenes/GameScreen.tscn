@@ -36,7 +36,8 @@ tracks/0/keys = {
 script = ExtResource( 3 )
 
 [node name="background" type="TextureRect" parent="."]
-margin_right = 2555.0
+margin_left = -4.0
+margin_right = 2551.0
 margin_bottom = 720.0
 expand = true
 __meta__ = {
@@ -118,3 +119,9 @@ anims/Space = SubResource( 2 )
 stream = ExtResource( 5 )
 volume_db = -25.349
 autoplay = true
+[connection signal="boss_fight_start" from="." to="Boss_2" method="_on_GameScreen_boss_fight_start"]
+[connection signal="boss_fight_start" from="." to="Boss_3" method="_on_GameScreen_boss_fight_start"]
+[connection signal="boss_fight_start" from="." to="Boss_1" method="_on_GameScreen_boss_fight_start"]
+[connection signal="boss_killed" from="Boss_1" to="." method="_on_Boss_boss_killed"]
+[connection signal="boss_killed" from="Boss_2" to="." method="_on_Boss_boss_killed"]
+[connection signal="boss_killed" from="Boss_3" to="." method="_on_Boss_boss_killed"]
