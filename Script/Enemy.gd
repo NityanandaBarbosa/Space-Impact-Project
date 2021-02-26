@@ -55,5 +55,5 @@ func _on_Enemy_area_entered(area):
 		queue_free()
 	else:
 		if area.is_in_group("GameScreen"):
-			print("To dentro")
+			#print("To dentro")
 			shotControl = true

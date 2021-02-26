@@ -8,9 +8,10 @@ signal boss_fight_start(phase_number)
 signal boss_fight_ends(phase_number)
 signal phase_change(phase_number)
 
-var current_phase = null 
+var bossMessage: float = 0 
+var current_phase: float
 var phase_start_time = null
-var current_time_passed = 0
+var current_time_passed: float = 0
 var boss_fight = false
 const  window_size = Vector2(5000,720) #ajustar
 var location = Vector2()
@@ -24,7 +25,7 @@ const PHASE_BACKGROUND = [
 	"res://Assests/Background/backgroud-phase-2.png", 
 	"res://Assests/Background/backgroud-phase-3.png"
 ]
-const PHASE_TIME = [60, 90, 120]
+const PHASE_TIME = [15, 90, 120]
 
 var rng = RandomNumberGenerator.new()
 
@@ -80,6 +81,14 @@ func start_phase(phase_number):
 
 func process_frame():
 	current_time_passed = OS.get_system_time_secs() - phase_start_time
+	if(current_time_passed < 6):
+		$initMessage.show()
+	else:
+		$initMessage.hide()
+	if((current_time_passed/PHASE_TIME[current_phase]) >= 0.7 and (current_time_passed/PHASE_TIME[current_phase]) <= 0.9):
+		$bossMessage.show()
+	else:
+		$bossMessage.hide()
 	if (current_time_passed >= PHASE_TIME[current_phase]):
 		if(!boss_fight):
 			spawn_boss(current_phase)
