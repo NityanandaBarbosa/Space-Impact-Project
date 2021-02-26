@@ -6,6 +6,8 @@ signal boss_killed(phase)
 var show_boss = false
 var speed: float = 100
 var life: float = 100
+var full_life = life
+onready var lifeProgress := $"Control/LifeProgress"
 var timer = false
 export var fireDelay: float = 0.3
 onready var normalGun := $"FireGun"
@@ -55,6 +57,7 @@ func process_boss(delta):
 func damage(amount: int):
 	if($".".is_visible_in_tree()):
 		life -= amount
+		lifeProgress.value = life/full_life*100
 		if life <= 0:
 			queue_free()
 			Global._enemykilled(15)
@@ -69,3 +72,4 @@ func _on_GameScreen_boss_fight_start(phase_number):
 func _on_FireDelayerTimer_timeout():
 	if timer == true:
 		timer = false
+		

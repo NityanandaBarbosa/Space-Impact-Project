@@ -161,9 +161,9 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="boss_fight_start" from="." to="Boss_2" method="_on_GameScreen_boss_fight_start"]
 [connection signal="boss_fight_start" from="." to="Boss_3" method="_on_GameScreen_boss_fight_start"]
 [connection signal="boss_fight_start" from="." to="Boss_1" method="_on_GameScreen_boss_fight_start"]
+[connection signal="boss_fight_start" from="." to="Boss_2" method="_on_GameScreen_boss_fight_start"]
 [connection signal="boss_killed" from="Boss_1" to="." method="_on_Boss_boss_killed"]
 [connection signal="boss_killed" from="Boss_2" to="." method="_on_Boss_boss_killed"]
 [connection signal="boss_killed" from="Boss_3" to="." method="_on_Boss_boss_killed"]
