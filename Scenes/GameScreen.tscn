@@ -60,15 +60,17 @@ position = Vector2( 47.2101, 389.713 )
 [node name="Boss_1" parent="." instance=ExtResource( 6 )]
 visible = false
 position = Vector2( 1192.32, 333.925 )
-scale = Vector2( 4.5, 4.5 )
+scale = Vector2( 2.5, 2.5 )
 
 [node name="Boss_2" parent="." instance=ExtResource( 10 )]
 visible = false
 position = Vector2( 1196, 334 )
+scale = Vector2( 2.5, 2.5 )
 
 [node name="Boss_3" parent="." instance=ExtResource( 11 )]
 visible = false
 position = Vector2( 1182, 354 )
+scale = Vector2( 0.8, 0.8 )
 
 [node name="Enemy" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1224.92, 236.887 )
@@ -159,9 +161,9 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="boss_fight_start" from="." to="Boss_3" method="_on_GameScreen_boss_fight_start"]
 [connection signal="boss_fight_start" from="." to="Boss_1" method="_on_GameScreen_boss_fight_start"]
 [connection signal="boss_fight_start" from="." to="Boss_2" method="_on_GameScreen_boss_fight_start"]
-[connection signal="boss_fight_start" from="." to="Boss_3" method="_on_GameScreen_boss_fight_start"]
 [connection signal="boss_killed" from="Boss_1" to="." method="_on_Boss_boss_killed"]
 [connection signal="boss_killed" from="Boss_2" to="." method="_on_Boss_boss_killed"]
 [connection signal="boss_killed" from="Boss_3" to="." method="_on_Boss_boss_killed"]
