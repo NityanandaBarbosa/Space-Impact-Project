@@ -5,7 +5,7 @@ var plBullet := preload("res://Scenes/Enemy Nave/enemyBullet.tscn")
 export var minSpeed: float = -300
 export var maxSpeed: float = -100
 export var life: int = 20
-export var fireDelay: float = 1.2
+export var fireDelay: float = 2
 var shotControl = false
 
 var speed: float = 0

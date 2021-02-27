@@ -29,7 +29,7 @@ const PHASE_BACKGROUND = [
 	"res://Assests/Background/backgroud-phase-2.png", 
 	"res://Assests/Background/backgroud-phase-3.png"
 ]
-const PHASE_TIME = [60, 90, 120]
+const PHASE_TIME = [10, 90, 120]
 
 var rng = RandomNumberGenerator.new()
 
@@ -68,7 +68,7 @@ func spawn_enemys():
 	
 	rng.randomize()
 	
-	var NumberOfMeteros = rng.randf_range(20, 30)
+	var NumberOfMeteros = rng.randf_range(10, 20)
 	
 	for i in range(NumberOfMeteros):
 		randomize()
@@ -111,7 +111,6 @@ func respawn_enemy():
 	if(current_time_passed - spawn_control == 25 and boss_fight == false):
 		spawn_control = current_time_passed
 		spawn_enemys()
-		print("Spawn inimigo")
 
 func _on_Boss_boss_killed(phase):
 	start_phase(phase + 1)

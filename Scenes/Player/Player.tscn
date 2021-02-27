@@ -25,13 +25,14 @@ position = Vector2( 77.9811, -0.396851 )
 [node name="SpecialGuns" type="Node2D" parent="."]
 
 [node name="SpecialGun1" type="Node2D" parent="SpecialGuns"]
-position = Vector2( 15.4772, -42.463 )
+position = Vector2( 20.838, -45.817 )
 
 [node name="SpecialGun2" type="Node2D" parent="SpecialGuns"]
-position = Vector2( 15.4772, 43.2567 )
+position = Vector2( 20.838, 50.543 )
 
 [node name="FireDelayerTimer" type="Timer" parent="."]
 one_shot = true
 
 [node name="sfx_shot" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
+[connection signal="timeout" from="FireDelayerTimer" to="." method="_on_FireDelayerTimer_timeout"]
