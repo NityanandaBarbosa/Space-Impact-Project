@@ -21,18 +21,16 @@ var packed_scene = [
 	preload('res://Scenes/Enemy Nave/Enemy.tscn')
 ]
 
-const BEGINS_SENTENCES = ["Phase One - Begins", "Phase Two - Begins", "Phase Three - Begins"]
+const BEGINS_SENTENCES = ["The Phase One Will Begins", "The Phase Two Will Begins", "The Phase Three Will Begins"]
 
 const PHASE_BACKGROUND = [
 	"res://Assests/Background/backgroud-phase-1.png", 
 	"res://Assests/Background/backgroud-phase-2.png", 
 	"res://Assests/Background/backgroud-phase-3.png"
 ]
-const PHASE_TIME = [10, 10, 10]
+const PHASE_TIME = [60, 90, 120]
 
 var rng = RandomNumberGenerator.new()
-
-
 
 func _ready():
 	
@@ -40,11 +38,8 @@ func _ready():
 
 func _process(delta):
 	
-	
 	#print(s)
 	process_frame()
-	
-	pass
 	
 	
 func _on_ms_timeout():
@@ -54,35 +49,19 @@ func _on_ms_timeout():
 	
 func start_phase(phase_number):
 	if (phase_number <= 2 ):
+		Global.control_shot = false
 		current_phase = phase_number
 		$background.texture = load(PHASE_BACKGROUND[current_phase])
 		phase_start_time = OS.get_system_time_secs()
 
 func process_frame():
-	current_time_passed = OS.get_system_time_secs() - phase_start_time
-	if(current_time_passed < 3 and init_phase == false):
-		$InitBackground.show()
-		$initMessage.text = BEGINS_SENTENCES[current_phase]
-		$initMessage.show()
-	else:
-		if(init_phase == false):
-			phase_start_time = OS.get_system_time_secs()
-			init_phase = true
-			$initMessage.hide()
-			$InitBackground.hide()
-			spawn_enemys()
-		
-	if((current_time_passed/PHASE_TIME[current_phase]) >= 0.7 and (current_time_passed/PHASE_TIME[current_phase]) <= 0.9):
-		$bossMessage.show()
-	else:
-		$bossMessage.hide()
-	if (current_time_passed >= PHASE_TIME[current_phase]):
-		if(!boss_fight):
-			spawn_boss(current_phase)
+	phase_actions()
 
 func spawn_boss(phase_number):
-	emit_signal("boss_fight_start", phase_number)
-	boss_fight = true
+	if (current_time_passed >= PHASE_TIME[current_phase]):
+		if(!boss_fight):
+			emit_signal("boss_fight_start", phase_number)
+			boss_fight = true
 	
 func spawn_enemys():
 	
@@ -99,6 +78,30 @@ func spawn_enemys():
 		scene.position = location
 		
 		add_child(scene)
+
+func phase_actions():
+	game_messages()
+	spawn_boss(current_phase)	
+	
+func game_messages():
+	current_time_passed = OS.get_system_time_secs() - phase_start_time
+	if(current_time_passed < 3 and init_phase == false):
+		$InitBackground.show()
+		$initMessage.text = BEGINS_SENTENCES[current_phase]
+		$initMessage.show()
+	else:
+		if(init_phase == false):
+			phase_start_time = OS.get_system_time_secs()
+			init_phase = true
+			Global.control_shot = true
+			$initMessage.hide()
+			$InitBackground.hide()
+			spawn_enemys()
+		
+	if((current_time_passed/PHASE_TIME[current_phase]) >= 0.7 and (current_time_passed/PHASE_TIME[current_phase]) <= 0.9):
+		$bossMessage.show()
+	else:
+		$bossMessage.hide()
 
 func _on_Boss_boss_killed(phase):
 	start_phase(phase + 1)

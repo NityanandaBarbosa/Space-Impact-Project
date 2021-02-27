@@ -1,6 +1,7 @@
 extends Node
 
 var score : int = 0
+var control_shot = false
 export var life: int = 3
 
 func _ready():
