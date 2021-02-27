@@ -12,6 +12,7 @@ var bossMessage: float = 0
 var current_phase: float = 0
 var phase_start_time = null
 var current_time_passed: float = 0
+var spawn_control: float = 0
 var boss_fight = false
 var init_phase = false
 const  window_size = Vector2(5000,720) #ajustar
@@ -80,11 +81,14 @@ func spawn_enemys():
 		add_child(scene)
 
 func phase_actions():
-	game_messages()
+	phase_control()
 	spawn_boss(current_phase)	
 	
-func game_messages():
+func phase_control():
 	current_time_passed = OS.get_system_time_secs() - phase_start_time
+	
+	respawn_enemy()
+	
 	if(current_time_passed < 3 and init_phase == false):
 		$InitBackground.show()
 		$initMessage.text = BEGINS_SENTENCES[current_phase]
@@ -102,6 +106,12 @@ func game_messages():
 		$bossMessage.show()
 	else:
 		$bossMessage.hide()
+
+func respawn_enemy():
+	if(current_time_passed - spawn_control == 25 and boss_fight == false):
+		spawn_control = current_time_passed
+		spawn_enemys()
+		print("Spawn inimigo")
 
 func _on_Boss_boss_killed(phase):
 	start_phase(phase + 1)
