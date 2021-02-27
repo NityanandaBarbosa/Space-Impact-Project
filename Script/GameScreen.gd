@@ -9,10 +9,12 @@ signal boss_fight_ends(phase_number)
 signal phase_change(phase_number)
 
 var bossMessage: float = 0 
-var current_phase: float
+var current_phase: float = 0
 var phase_start_time = null
 var current_time_passed: float = 0
+var spawn_control: float = 0
 var boss_fight = false
+var init_phase = false
 const  window_size = Vector2(5000,720) #ajustar
 var location = Vector2()
 var packed_scene = [
@@ -20,83 +22,98 @@ var packed_scene = [
 	preload('res://Scenes/Enemy Nave/Enemy.tscn')
 ]
 
+const BEGINS_SENTENCES = ["The Phase One Will Begins", "The Phase Two Will Begins", "The Phase Three Will Begins"]
+
 const PHASE_BACKGROUND = [
 	"res://Assests/Background/backgroud-phase-1.png", 
 	"res://Assests/Background/backgroud-phase-2.png", 
 	"res://Assests/Background/backgroud-phase-3.png"
 ]
-const PHASE_TIME = [10, 10, 10]
+const PHASE_TIME = [60, 90, 120]
 
 var rng = RandomNumberGenerator.new()
-
-
 
 func _ready():
 	
 	start_phase(0)
-	rng.randomize()
-	
-	var NumberOfMeteros = rng.randf_range(20, 30)
-	
-	for i in range(NumberOfMeteros):
-		
-		
-		randomize()
-		var x = randi() % packed_scene.size() 
-		
-		location.x = rand_range(1240,window_size.x)
-		location.y = rand_range(1,window_size.y)
-		
-		var scene =  packed_scene[x].instance()
-		scene.position = location
-	
-		
-		add_child(scene)
 
 func _process(delta):
-	
 	
 	#print(s)
 	process_frame()
 	
-	pass
-	
 	
 func _on_ms_timeout():
 		ms += 1
-	
-	
-	
-	
-	
+		
 	#onready var fireDelayTimer := $FireDelayerTimer
 	
-	
-	
 func start_phase(phase_number):
-	if (phase_number <= 2):
+	if (phase_number <= 2 ):
+		Global.control_shot = false
 		current_phase = phase_number
 		$background.texture = load(PHASE_BACKGROUND[current_phase])
 		phase_start_time = OS.get_system_time_secs()
 
 func process_frame():
+	phase_actions()
+
+func spawn_boss(phase_number):
+	if (current_time_passed >= PHASE_TIME[current_phase]):
+		if(!boss_fight):
+			emit_signal("boss_fight_start", phase_number)
+			boss_fight = true
+	
+func spawn_enemys():
+	
+	rng.randomize()
+	
+	var NumberOfMeteros = rng.randf_range(20, 30)
+	
+	for i in range(NumberOfMeteros):
+		randomize()
+		var x = randi() % packed_scene.size() 
+		location.x = rand_range(1240,window_size.x)
+		location.y = rand_range(1,window_size.y)
+		var scene =  packed_scene[x].instance()
+		scene.position = location
+		
+		add_child(scene)
+
+func phase_actions():
+	phase_control()
+	spawn_boss(current_phase)	
+	
+func phase_control():
 	current_time_passed = OS.get_system_time_secs() - phase_start_time
-	if(current_time_passed < 6):
+	
+	respawn_enemy()
+	
+	if(current_time_passed < 3 and init_phase == false):
+		$InitBackground.show()
+		$initMessage.text = BEGINS_SENTENCES[current_phase]
 		$initMessage.show()
 	else:
-		$initMessage.hide()
+		if(init_phase == false):
+			phase_start_time = OS.get_system_time_secs()
+			init_phase = true
+			Global.control_shot = true
+			$initMessage.hide()
+			$InitBackground.hide()
+			spawn_enemys()
+		
 	if((current_time_passed/PHASE_TIME[current_phase]) >= 0.7 and (current_time_passed/PHASE_TIME[current_phase]) <= 0.9):
 		$bossMessage.show()
 	else:
 		$bossMessage.hide()
-	if (current_time_passed >= PHASE_TIME[current_phase]):
-		if(!boss_fight):
-			spawn_boss(current_phase)
 
-func spawn_boss(phase_number):
-	emit_signal("boss_fight_start", phase_number)
-	boss_fight = true
+func respawn_enemy():
+	if(current_time_passed - spawn_control == 25 and boss_fight == false):
+		spawn_control = current_time_passed
+		spawn_enemys()
+		print("Spawn inimigo")
 
 func _on_Boss_boss_killed(phase):
 	start_phase(phase + 1)
 	boss_fight = false
+	init_phase = false
