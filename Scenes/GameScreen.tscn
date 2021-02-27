@@ -1,9 +1,7 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/Enemy Nave/Enemy.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Script/GameScreen.gd" type="Script" id=3]
-[ext_resource path="res://Scenes/Meteor/Meteor.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assests/SoundEffects/bgm/Music_1.wav" type="AudioStream" id=5]
 [ext_resource path="res://Scenes/Boss_1/Boss_1.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Assests/Fonts/font.otf" type="DynamicFontData" id=7]
@@ -13,6 +11,7 @@
 [ext_resource path="res://Scenes/Boss_1/Boss_3.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Script/LifeContainer.gd" type="Script" id=12]
 [ext_resource path="res://Assests/Fonts/font.ttf" type="DynamicFontData" id=13]
+[ext_resource path="res://Assests/wallpaperflare.com_wallpaper.png" type="Texture" id=14]
 
 [sub_resource type="DynamicFont" id=1]
 size = 120
@@ -51,9 +50,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Meteor" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1200.42, 114.75 )
-
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 47.2101, 389.713 )
 
@@ -71,9 +67,6 @@ scale = Vector2( 2.5, 2.5 )
 visible = false
 position = Vector2( 1182, 354 )
 scale = Vector2( 0.8, 0.8 )
-
-[node name="Enemy" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1224.92, 236.887 )
 
 [node name="Control" type="Control" parent="."]
 margin_left = 1131.8
@@ -134,19 +127,6 @@ autoplay = true
 visible = false
 polygon = PoolVector2Array( -3.71815, 716.598, 1281.48, 726.122, 1279.9, 0.680054, -1.27765, -0.907349 )
 
-[node name="initMessage" type="Label" parent="."]
-visible = false
-margin_left = 193.663
-margin_right = 1093.66
-margin_bottom = 146.0
-custom_fonts/font = SubResource( 3 )
-text = "A new phase begins."
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="bossMessage" type="Label" parent="."]
 visible = false
 margin_left = 193.663
@@ -161,9 +141,35 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="boss_fight_start" from="." to="Boss_3" method="_on_GameScreen_boss_fight_start"]
+
+[node name="InitBackground" type="TextureRect" parent="."]
+visible = false
+margin_left = -30.1606
+margin_top = -17.4614
+margin_right = 4092.84
+margin_bottom = 2313.54
+rect_scale = Vector2( 0.32, 0.32 )
+texture = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="initMessage" type="Label" parent="."]
+visible = false
+margin_left = 206.877
+margin_top = 54.7447
+margin_right = 1106.87
+margin_bottom = 200.745
+custom_fonts/font = SubResource( 3 )
+text = "A new phase begins."
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="boss_fight_start" from="." to="Boss_1" method="_on_GameScreen_boss_fight_start"]
 [connection signal="boss_fight_start" from="." to="Boss_2" method="_on_GameScreen_boss_fight_start"]
+[connection signal="boss_fight_start" from="." to="Boss_3" method="_on_GameScreen_boss_fight_start"]
 [connection signal="boss_killed" from="Boss_1" to="." method="_on_Boss_boss_killed"]
 [connection signal="boss_killed" from="Boss_2" to="." method="_on_Boss_boss_killed"]
 [connection signal="boss_killed" from="Boss_3" to="." method="_on_Boss_boss_killed"]

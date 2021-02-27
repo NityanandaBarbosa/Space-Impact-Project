@@ -18,7 +18,7 @@ func _process(delta):
 			var life = life_pre.instance()
 			add_child(life)
 			life_control += 1
-	game_over(Global.life)
+	#game_over(Global.life)
 
 func game_over(life):
 	if(life == 0):
