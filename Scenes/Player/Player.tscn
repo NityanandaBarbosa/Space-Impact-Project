@@ -25,10 +25,10 @@ position = Vector2( 77.9811, -0.396851 )
 [node name="SpecialGuns" type="Node2D" parent="."]
 
 [node name="SpecialGun1" type="Node2D" parent="SpecialGuns"]
-position = Vector2( 20.838, -45.817 )
+position = Vector2( -5.53982, -44.6945 )
 
 [node name="SpecialGun2" type="Node2D" parent="SpecialGuns"]
-position = Vector2( 20.838, 50.543 )
+position = Vector2( -5.53982, 42.1245 )
 
 [node name="FireDelayerTimer" type="Timer" parent="."]
 one_shot = true

@@ -9,3 +9,7 @@ func _ready():
 
 func _enemykilled(points):
 	score += points
+
+func _reset_values():
+	control_shot = false
+	life = 3
