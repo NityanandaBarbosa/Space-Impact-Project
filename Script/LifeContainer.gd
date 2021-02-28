@@ -29,7 +29,6 @@ func game_over(life, time):
 		death_time = time
 		is_dead = true
 	elif(life <= 0 and is_dead == true):
-		print(time - death_time)
 		if(time - death_time == 1):
 			Global._reset_values()
 			get_tree().change_scene("res://Scenes/GameOverScreen.tscn")
