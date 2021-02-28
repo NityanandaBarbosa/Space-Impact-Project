@@ -29,7 +29,7 @@ const PHASE_BACKGROUND = [
 	"res://Assests/Background/backgroud-phase-2.png", 
 	"res://Assests/Background/backgroud-phase-3.png"
 ]
-const PHASE_TIME = [10, 90, 120]
+const PHASE_TIME = [60, 90, 120]
 
 var rng = RandomNumberGenerator.new()
 
@@ -50,6 +50,7 @@ func _on_ms_timeout():
 	
 func start_phase(phase_number):
 	if (phase_number <= 2 ):
+		spawn_control = 0
 		Global.control_shot = false
 		current_phase = phase_number
 		$background.texture = load(PHASE_BACKGROUND[current_phase])
@@ -68,7 +69,7 @@ func spawn_enemys():
 	
 	rng.randomize()
 	
-	var NumberOfMeteros = rng.randf_range(10, 20)
+	var NumberOfMeteros = rng.randf_range(5, 15)
 	
 	for i in range(NumberOfMeteros):
 		randomize()
@@ -87,8 +88,6 @@ func phase_actions():
 func phase_control():
 	current_time_passed = OS.get_system_time_secs() - phase_start_time
 	
-	respawn_enemy()
-	
 	if(current_time_passed < 3 and init_phase == false):
 		$InitBackground.show()
 		$initMessage.text = BEGINS_SENTENCES[current_phase]
@@ -106,9 +105,11 @@ func phase_control():
 		$bossMessage.show()
 	else:
 		$bossMessage.hide()
+	
+	respawn_enemy()
 
 func respawn_enemy():
-	if(current_time_passed - spawn_control == 25 and boss_fight == false):
+	if(current_time_passed - spawn_control == 15 and boss_fight == false):
 		spawn_control = current_time_passed
 		spawn_enemys()
 

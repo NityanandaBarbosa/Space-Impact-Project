@@ -128,20 +128,20 @@ __meta__ = {
 }
 
 [node name="ScorePainel" type="Panel" parent="."]
-margin_left = 1097.18
-margin_top = 67.1651
-margin_right = 1230.18
-margin_bottom = 161.166
+margin_left = 1057.0
+margin_top = 54.0
+margin_right = 1218.0
+margin_bottom = 136.0
 theme = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="HighScoreStar" type="TextureRect" parent="ScorePainel"]
-margin_left = 4.33643
-margin_top = 19.1001
-margin_right = 65.3364
-margin_bottom = 73.1001
+margin_left = 3.00159
+margin_top = 11.0911
+margin_right = 64.0016
+margin_bottom = 65.0911
 texture = ExtResource( 4 )
 expand = true
 stretch_mode = 1
@@ -150,12 +150,17 @@ __meta__ = {
 }
 
 [node name="HighScoreLabel" type="Label" parent="ScorePainel"]
-margin_left = 73.8357
-margin_top = 31.9178
-margin_right = 121.836
-margin_bottom = 62.9178
+margin_left = 47.5979
+margin_top = 27.4709
+margin_right = 166.598
+margin_bottom = 58.4709
 custom_fonts/font = SubResource( 6 )
-text = "55"
+text = "HIGH"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
