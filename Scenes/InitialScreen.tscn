@@ -128,20 +128,20 @@ __meta__ = {
 }
 
 [node name="ScorePainel" type="Panel" parent="."]
-margin_left = 1057.4
-margin_top = 53.6516
-margin_right = 1234.4
-margin_bottom = 143.652
+margin_left = 1057.0
+margin_top = 54.0
+margin_right = 1218.0
+margin_bottom = 136.0
 theme = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="HighScoreStar" type="TextureRect" parent="ScorePainel"]
-margin_left = 4.33643
-margin_top = 19.1001
-margin_right = 65.3364
-margin_bottom = 73.1001
+margin_left = 3.00159
+margin_top = 11.0911
+margin_right = 64.0016
+margin_bottom = 65.0911
 texture = ExtResource( 4 )
 expand = true
 stretch_mode = 1
@@ -150,13 +150,14 @@ __meta__ = {
 }
 
 [node name="HighScoreLabel" type="Label" parent="ScorePainel"]
-margin_left = 36.4602
-margin_top = 33.2526
-margin_right = 155.46
-margin_bottom = 64.2526
+margin_left = 47.5979
+margin_top = 27.4709
+margin_right = 166.598
+margin_bottom = 58.4709
 custom_fonts/font = SubResource( 6 )
-text = "HIGHER"
+text = "HIGH"
 align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
