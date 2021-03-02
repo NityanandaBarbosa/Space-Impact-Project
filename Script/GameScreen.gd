@@ -22,6 +22,13 @@ var packed_scene = [
 	preload('res://Scenes/Enemy Nave/Enemy.tscn')
 ]
 
+const PHASE_MUSIC = [
+	preload("res://Assests/SoundEffects/bgm/Music_1.wav"),
+	preload("res://Assests/SoundEffects/bgm/Music_2.wav"),
+	preload("res://Assests/SoundEffects/bgm/Music_3.wav"),
+	preload("res://Assests/SoundEffects/bgm/Music_Boss.wav")
+]
+
 const BEGINS_SENTENCES = ["The Phase One Will Begins", "The Phase Two Will Begins", "The Phase Three Will Begins"]
 
 const PHASE_BACKGROUND = [
@@ -62,6 +69,8 @@ func process_frame():
 func spawn_boss(phase_number):
 	if (current_time_passed >= PHASE_TIME[current_phase]):
 		if(!boss_fight):
+			$Music_Fase.set_stream(PHASE_MUSIC[3])
+			$Music_Fase.play()
 			emit_signal("boss_fight_start", phase_number)
 			boss_fight = true
 	
@@ -87,7 +96,6 @@ func phase_actions():
 	
 func phase_control():
 	current_time_passed = OS.get_system_time_secs() - phase_start_time
-	
 	if(current_time_passed < 3 and init_phase == false):
 		$InitBackground.show()
 		$initMessage.text = BEGINS_SENTENCES[current_phase]
@@ -99,6 +107,8 @@ func phase_control():
 			Global.control_shot = true
 			$initMessage.hide()
 			$InitBackground.hide()
+			$Music_Fase.set_stream(PHASE_MUSIC[current_phase])
+			$Music_Fase.play()
 			spawn_enemys()
 		
 	if((current_time_passed/PHASE_TIME[current_phase]) >= 0.7 and (current_time_passed/PHASE_TIME[current_phase]) <= 0.9):
