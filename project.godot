@@ -17,7 +17,7 @@ _global_script_class_icons={
 
 config/name="Space-Impact-Project"
 run/main_scene="res://Scenes/InitialScreen.tscn"
-boot_splash/image="res://Assests/wallpaperflare.com_wallpaper.png"
+boot_splash/image="res://Assests/splash.png"
 config/icon="res://icon.png"
 
 [autoload]
