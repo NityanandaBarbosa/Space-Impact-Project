@@ -5,7 +5,7 @@ export var maxSpeed: float = -150
 export var minRotationRate: float = -255
 export var maxRotationRate: float = 255
 
-export var life: int = 20
+export var life: int = 2
 
 var speed: float = 0
 var rotationRate: float = 0

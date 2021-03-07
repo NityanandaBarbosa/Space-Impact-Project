@@ -4,8 +4,8 @@ extends Area2D
 signal boss_killed(phase)
 
 var show_boss = false
-var speed: float = 100
-var life: float = 100
+var speed: float = 200
+var life: float = 90
 var full_life = life
 onready var lifeProgress := $"Control/LifeProgress"
 var timer = false

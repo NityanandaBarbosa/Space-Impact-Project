@@ -4,7 +4,7 @@
 [ext_resource path="res://Assests/Themas/main.tres" type="Theme" id=2]
 [ext_resource path="res://Script/InitialScreen.gd" type="Script" id=3]
 [ext_resource path="res://Assests/InitialScore/hp_gold_star.svg" type="Texture" id=4]
-[ext_resource path="res://Assests/SoundEffects/bgm/Music_1.wav" type="AudioStream" id=5]
+[ext_resource path="res://Assests/SoundEffects/bgm/Music_init.wav" type="AudioStream" id=5]
 [ext_resource path="res://Assests/Background/Asteroids_-_9135.ogv" type="VideoStream" id=6]
 
 [sub_resource type="DynamicFont" id=1]
@@ -173,6 +173,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="MusicPlayerInit" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
+volume_db = -21.745
+autoplay = true
 [connection signal="pressed" from="ButtonsContainer/btn_newgame" to="." method="_on_btn_newgame_pressed"]
