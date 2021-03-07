@@ -9,7 +9,7 @@ size = 25
 font_data = ExtResource( 3 )
 
 [node name="Boss_3" type="Area2D" groups=[
-"damageable",
+"boss",
 ]]
 script = ExtResource( 2 )
 

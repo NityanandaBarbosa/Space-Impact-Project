@@ -14,3 +14,7 @@ func _on_Bullet_area_entered(area):
 		if area.is_visible_in_tree():
 			area.damage(1)
 			queue_free()
+	if area.is_in_group("boss"):
+		if area.is_visible_in_tree():
+			area.damage(1)
+			queue_free()
