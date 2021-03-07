@@ -3,7 +3,8 @@ extends Area2D
 var plBullet := preload("res://Scenes/Player/bullet.tscn")
 
 export var speed: float = 500
-export var fireDelay: float = 0
+export var interval: float = .18
+export var last_shot: float = 0
 
 onready var normalGun := $FireGun
 onready var gunsPosition := $SpecialGuns
@@ -14,14 +15,18 @@ var vel := Vector2(0,0)
 
 func _process(delta):
 	if(Global.control_shot == true):
-		if Input.is_action_pressed("shoot") and $FireDelayerTimer.is_stopped():
-			$FireDelayerTimer.wait_time = fireDelay
-			$FireDelayerTimer.start()
-			for child in gunsPosition.get_children():
-					var bulllet := plBullet.instance()
-					bulllet.global_position = child.global_position
-					get_tree().current_scene.add_child(bulllet)
-					$sfx_shot.play()
+		if Input.is_action_pressed("shoot"):
+			#$FireDelayerTimer.wait_time = fireDelay
+			#$FireDelayerTimer.start()
+			if last_shot <= 0:
+				for child in gunsPosition.get_children():
+						var bulllet := plBullet.instance()
+						bulllet.global_position = child.global_position
+						get_tree().current_scene.add_child(bulllet)
+						$sfx_shot.play()
+						last_shot = interval
+						
+					
 			#var bulllet := plBullet.instance()
 			#bulllet.global_position = normalGun.global_position
 			#get_tree().current_scene.add_child(bulllet)
@@ -30,7 +35,9 @@ func _process(delta):
 			#	var bulllet := plBullet.instance()
 			#	bulllet.global_position = child.global
 			#	get_tree().current_scene.add_child(bulllet)
-	
+	if last_shot > 0:
+		last_shot -= delta
+		
 func _physics_process(delta):
 	var dirVec := Vector2(0,0)
 	 

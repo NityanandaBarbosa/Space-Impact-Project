@@ -8,7 +8,6 @@
 "player",
 ]]
 script = ExtResource( 2 )
-fireDelay = 0.35
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0.396797, 0.321996 )
