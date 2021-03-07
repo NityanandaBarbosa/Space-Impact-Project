@@ -5,7 +5,6 @@
 
 [node name="Boss_3_Bullet" type="Area2D"]
 position = Vector2( 1.84761, 0.280931 )
-scale = Vector2( 2, 2 )
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
