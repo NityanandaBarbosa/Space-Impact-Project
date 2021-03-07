@@ -36,7 +36,7 @@ const PHASE_BACKGROUND = [
 	"res://Assests/Background/backgroud-phase-2.png", 
 	"res://Assests/Background/backgroud-phase-3.png"
 ]
-const PHASE_TIME = [10, 10, 10]
+const PHASE_TIME = [5, 5, 5]
 
 var rng = RandomNumberGenerator.new()
 
@@ -124,6 +124,12 @@ func respawn_enemy():
 		spawn_enemys()
 
 func _on_Boss_boss_killed(phase):
-	start_phase(phase + 1)
-	boss_fight = false
-	init_phase = false
+	if(phase == 2):
+		Global._reset_values()
+		boss_fight = false
+		init_phase = false
+		get_tree().change_scene("res://Scenes/WinScreen.tscn")
+	else:
+		start_phase(phase + 1)
+		boss_fight = false
+		init_phase = false

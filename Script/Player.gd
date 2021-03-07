@@ -60,4 +60,3 @@ func _physics_process(delta):
 	
 func damage(amount: int):
 	Global._enemykilled(1)
-	
