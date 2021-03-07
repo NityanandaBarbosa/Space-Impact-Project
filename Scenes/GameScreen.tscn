@@ -117,7 +117,7 @@ playback_speed = 0.2
 anims/Space = SubResource( 2 )
 
 [node name="Music_Fase" type="AudioStreamPlayer" parent="."]
-volume_db = -16.618
+volume_db = -23.236
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 visible = false

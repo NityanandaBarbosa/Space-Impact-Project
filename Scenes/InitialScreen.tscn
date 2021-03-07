@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Assests/Fonts/font.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assests/Themas/main.tres" type="Theme" id=2]
 [ext_resource path="res://Script/InitialScreen.gd" type="Script" id=3]
 [ext_resource path="res://Assests/InitialScore/hp_gold_star.svg" type="Texture" id=4]
 [ext_resource path="res://Assests/SoundEffects/bgm/Music_1.wav" type="AudioStream" id=5]
+[ext_resource path="res://Assests/Background/Asteroids_-_9135.ogv" type="VideoStream" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
@@ -30,7 +31,17 @@ font_data = ExtResource( 1 )
 [node name="InitialScreen" type="Node2D"]
 script = ExtResource( 3 )
 
+[node name="VideoPlayer" type="VideoPlayer" parent="."]
+margin_right = 1280.0
+margin_bottom = 720.0
+stream = ExtResource( 6 )
+autoplay = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="background" type="TextureRect" parent="."]
+visible = false
 margin_left = -1.0
 margin_top = 4.0
 margin_right = 1283.0
@@ -128,10 +139,10 @@ __meta__ = {
 }
 
 [node name="ScorePainel" type="Panel" parent="."]
-margin_left = 1057.0
-margin_top = 54.0
-margin_right = 1218.0
-margin_bottom = 136.0
+margin_left = 1107.6
+margin_top = 27.1299
+margin_right = 1268.6
+margin_bottom = 109.13
 theme = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false

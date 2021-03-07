@@ -2,7 +2,7 @@ extends Area2D
 
 var plBullet := preload("res://Scenes/Player/bullet.tscn")
 
-export var speed: float = 450
+export var speed: float = 500
 export var fireDelay: float = 0
 
 onready var normalGun := $FireGun
