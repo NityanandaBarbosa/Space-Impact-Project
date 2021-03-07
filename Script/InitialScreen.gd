@@ -11,6 +11,8 @@ func _ready():
 func _process(delta):
 	if(not $VideoPlayer.is_playing()):
 		$VideoPlayer.play()
+	if(not $MusicPlayerInit.is_playing()):
+		$MusicPlayerInit.play()
 	
 func _on_btn_newgame_pressed():
 	 get_tree().change_scene("res://Scenes/GameScreen.tscn")
