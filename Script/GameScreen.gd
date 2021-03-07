@@ -36,7 +36,7 @@ const PHASE_BACKGROUND = [
 	"res://Assests/Background/backgroud-phase-2.png", 
 	"res://Assests/Background/backgroud-phase-3.png"
 ]
-const PHASE_TIME = [5, 5, 5]
+const PHASE_TIME = [15, 5, 5]
 
 var rng = RandomNumberGenerator.new()
 
@@ -73,6 +73,9 @@ func spawn_boss(phase_number):
 			$Music_Fase.play()
 			emit_signal("boss_fight_start", phase_number)
 			boss_fight = true
+			var enemies = get_tree().get_nodes_in_group("damageable")
+			for enemy in enemies:
+				enemy.queue_free()
 	
 func spawn_enemys():
 	
@@ -92,7 +95,8 @@ func spawn_enemys():
 
 func phase_actions():
 	phase_control()
-	spawn_boss(current_phase)	
+	spawn_boss(current_phase)
+		
 	
 func phase_control():
 	current_time_passed = OS.get_system_time_secs() - phase_start_time
