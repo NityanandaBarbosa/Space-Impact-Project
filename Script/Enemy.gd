@@ -2,13 +2,15 @@ extends Area2D
 
 var plBullet := preload("res://Scenes/Enemy Nave/enemyBullet.tscn")
 
-export var minSpeed: float = -300
-export var maxSpeed: float = -100
+export var minSpeed: float = -100
+export var maxSpeed: float = -300
+
 export var life: int = 2
-export var fireDelay: float = 2
+export var fireDelay: float = 4
 var shotControl = false
 
 var speed: float = 0
+var speed_vertical: float = -150
 var rotationRate: float = 0
 var timer = false
 onready var normalGun := $"FireGun"
@@ -16,10 +18,14 @@ onready var fireDelayTimer := $FireDelayerTimer
 
 var rng = RandomNumberGenerator.new()
 
+var MOVIMENTATION_TIME: int = 0
+var current_time = 0
+var choice = 0
 
 func _ready():
 	randomize()
 	speed = rand_range(minSpeed,maxSpeed)
+	MOVIMENTATION_TIME = rand_range(20,80)
 	
 func _process(delta):
 	if timer == false:
@@ -33,6 +39,17 @@ func _process(delta):
 	
 func _physics_process(delta):
 	position.x  += speed * delta
+	current_time += 1
+	if (current_time == MOVIMENTATION_TIME):
+		current_time = 0
+		choice = rng.randi_range(0, 1)
+	if (choice == 1):
+		position.y += speed_vertical * delta
+	elif (choice == 0):		
+		position.y -= speed_vertical * delta
+		
+	var viewRect := get_viewport_rect()
+	position.y = clamp(position.y,0, viewRect.size.y)
 
 func damage(amount: int):
 	life -= amount
