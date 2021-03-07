@@ -111,7 +111,7 @@ func phase_control():
 			$Music_Fase.play()
 			spawn_enemys()
 		
-	if((current_time_passed/PHASE_TIME[current_phase]) >= 0.7 and (current_time_passed/PHASE_TIME[current_phase]) <= 0.9):
+	if((current_time_passed/PHASE_TIME[current_phase]) >= 0.90 and (current_time_passed/PHASE_TIME[current_phase]) <= 0.95):
 		$bossMessage.show()
 	else:
 		$bossMessage.hide()
