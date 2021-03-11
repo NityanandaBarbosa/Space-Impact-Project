@@ -36,7 +36,7 @@ const PHASE_BACKGROUND = [
 	"res://Assests/Background/backgroud-phase-2.png", 
 	"res://Assests/Background/backgroud-phase-3.png"
 ]
-const PHASE_TIME = [15, 5, 5]
+const PHASE_TIME = [60, 90, 120]
 
 var rng = RandomNumberGenerator.new()
 
