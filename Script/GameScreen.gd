@@ -29,6 +29,8 @@ const PHASE_MUSIC = [
 	preload("res://Assests/SoundEffects/bgm/Music_Boss.wav")
 ]
 
+const ENEMY_PER_PHASE = [10,12,15]
+
 const BEGINS_SENTENCES = ["The Phase One Will Begins", "The Phase Two Will Begins", "The Phase Three Will Begins"]
 
 const PHASE_BACKGROUND = [
@@ -81,9 +83,7 @@ func spawn_enemys():
 	
 	rng.randomize()
 	
-	var NumberOfMeteros = rng.randf_range(5, 15)
-	
-	for i in range(NumberOfMeteros):
+	for i in range(ENEMY_PER_PHASE[current_phase]):
 		randomize()
 		var x = randi() % packed_scene.size() 
 		location.x = rand_range(1240,window_size.x)
@@ -129,9 +129,9 @@ func respawn_enemy():
 
 func _on_Boss_boss_killed(phase):
 	if(phase == 2):
-		Global._reset_values()
 		boss_fight = false
 		init_phase = false
+		Global._reset_values()
 		get_tree().change_scene("res://Scenes/WinScreen.tscn")
 	else:
 		start_phase(phase + 1)

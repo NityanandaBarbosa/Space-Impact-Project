@@ -9,6 +9,7 @@ func _ready():
 	for i in range(life_control):
 		var life = life_pre.instance()
 		add_child(life)
+		print("ADD VIDA" + str(i))
 
 func _process(delta):
 	var time = OS.get_system_time_secs()
