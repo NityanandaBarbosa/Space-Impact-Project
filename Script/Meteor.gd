@@ -39,17 +39,14 @@ func random_life():
 	rng.randomize()
 	random_choice = rng.randi_range(0, 2)
 	if random_choice == 1:
-		print("Meteor felt Score")
 		var life_scores := plLife.instance()
 		life_scores.global_position = $".".global_position
 		get_tree().current_scene.add_child(life_scores)
-	else:
-		print("Meteor no Scores")
 
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
 
 func _on_Meteor_area_entered(area):
 	if area.is_in_group("player"):
-		Global.life -= 1
+		Global._decrease_life()
 		queue_free()

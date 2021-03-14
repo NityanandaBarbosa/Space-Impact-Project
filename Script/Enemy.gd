@@ -65,13 +65,10 @@ func random_life():
 	rng.randomize()
 	random_choice = rng.randi_range(0, 2)
 	if random_choice == 1:
-		print("Enemy felt Score")
 		var life_scores := plLife.instance()
 		life_scores.global_position = $".".global_position
 		get_tree().current_scene.add_child(life_scores)
-	else:
-		print("Enemy no Scores")
-		
+
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
 
@@ -83,7 +80,7 @@ func _on_FireDelayTimer_timeout():
 
 func _on_Enemy_area_entered(area):
 	if area.is_in_group("player"):
-		Global.life -= 1
+		Global._decrease_life()
 		queue_free()
 	else:
 		if area.is_in_group("GameScreen"):

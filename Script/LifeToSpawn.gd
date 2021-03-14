@@ -13,3 +13,9 @@ func _physics_process(delta):
 
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
+
+
+func _on_Life_area_shape_entered(area_id, area, area_shape, self_shape):
+	if area.is_in_group("player"):
+		Global._increase_life()
+		queue_free()

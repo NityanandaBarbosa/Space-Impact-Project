@@ -18,4 +18,5 @@ build_mode = 1
 polygon = PoolVector2Array( -16.917, 8.4576, -5.49237, 21.0059, 4.80849, 20.4441, 10.989, 14.4508, 16.4204, 8.4576, 24.0992, 1.90251, 26.1594, -0.532242, 25.7848, -14.5789, 19.9789, -19.0738, 4.43391, -19.6357, 4.43391, -15.7026, -3.43221, -15.1407, -5.1178, -22.0704, -20.2882, -20.1975, -24.5958, -14.7662, -25.9068, -6.90005, -25.5322, -1.0941 )
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+[connection signal="area_shape_entered" from="." to="." method="_on_Life_area_shape_entered"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

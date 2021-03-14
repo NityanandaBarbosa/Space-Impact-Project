@@ -44,4 +44,5 @@ value = 100.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="area_shape_entered" from="." to="." method="_on_Boss_2_area_shape_entered"]
 [connection signal="timeout" from="FireDelayerTimer" to="." method="_on_FireDelayerTimer_timeout"]
