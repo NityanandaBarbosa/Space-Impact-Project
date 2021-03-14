@@ -19,3 +19,11 @@ func _reset_values():
 	_check_high_score()
 	life = 3
 	score = 0
+	
+func _increase_life ():
+	if(life <= 2):
+		life += 1
+
+func _decrease_life():
+	if(life >= 1):
+		life -= 1

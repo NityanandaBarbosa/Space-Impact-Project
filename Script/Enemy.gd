@@ -1,11 +1,12 @@
 extends Area2D
 
 var plBullet := preload("res://Scenes/Enemy Nave/enemyBullet.tscn")
+var plLife := preload("res://Scenes/LifeToSpawn.tscn")
 
 export var minSpeed: float = -100
 export var maxSpeed: float = -300
 
-export var life: int = 2
+export var life: int = 4
 export var fireDelay: float = 4
 var shotControl = false
 
@@ -21,6 +22,7 @@ var rng = RandomNumberGenerator.new()
 var MOVIMENTATION_TIME: int = 0
 var current_time = 0
 var choice = 0
+var random_choice = 0
 
 func _ready():
 	randomize()
@@ -54,8 +56,18 @@ func _physics_process(delta):
 func damage(amount: int):
 	life -= amount
 	if life <= 0:
+		random_life()
 		queue_free()
 		Global._enemykilled(3)
+		
+
+func random_life():
+	rng.randomize()
+	random_choice = rng.randi_range(0, 2)
+	if random_choice == 1:
+		var life_scores := plLife.instance()
+		life_scores.global_position = $".".global_position
+		get_tree().current_scene.add_child(life_scores)
 
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
@@ -68,7 +80,7 @@ func _on_FireDelayTimer_timeout():
 
 func _on_Enemy_area_entered(area):
 	if area.is_in_group("player"):
-		Global.life -= 1
+		Global._decrease_life()
 		queue_free()
 	else:
 		if area.is_in_group("GameScreen"):

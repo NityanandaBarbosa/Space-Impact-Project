@@ -140,12 +140,11 @@ __meta__ = {
 
 [node name="InitBackground" type="TextureRect" parent="."]
 visible = false
-margin_left = -30.1606
-margin_top = -17.4614
-margin_right = 4092.84
-margin_bottom = 2313.54
+margin_right = 4005.0
+margin_bottom = 2244.0
 rect_scale = Vector2( 0.32, 0.32 )
 texture = ExtResource( 14 )
+expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -164,8 +163,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="boss_fight_start" from="." to="Boss_1" method="_on_GameScreen_boss_fight_start"]
-[connection signal="boss_fight_start" from="." to="Boss_2" method="_on_GameScreen_boss_fight_start"]
 [connection signal="boss_fight_start" from="." to="Boss_3" method="_on_GameScreen_boss_fight_start"]
+[connection signal="boss_fight_start" from="." to="Boss_2" method="_on_GameScreen_boss_fight_start"]
 [connection signal="boss_killed" from="Boss_1" to="." method="_on_Boss_boss_killed"]
 [connection signal="boss_killed" from="Boss_2" to="." method="_on_Boss_boss_killed"]
 [connection signal="boss_killed" from="Boss_3" to="." method="_on_Boss_boss_killed"]

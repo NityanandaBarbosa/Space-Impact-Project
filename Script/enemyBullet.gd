@@ -11,5 +11,5 @@ func _on_VisibilityNotifier2D_screen_exited():
 
 func _on_Bullet_area_entered(area):
 	if area.is_in_group("player"):
-		Global.life -= 1
+		Global._decrease_life()
 		queue_free()
