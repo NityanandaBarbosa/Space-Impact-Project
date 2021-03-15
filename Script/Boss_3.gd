@@ -17,7 +17,7 @@ onready var gunsPositions := $gunsPosition
 onready var gun1:= $"gunsPosition/DownGun"
 onready var gun2:= $"gunsPosition/UpGun"
 var timer = false
-export var fireDelay: float = 0.3
+export var fireDelay: float = 1
 var plBullet := preload("res://Scenes/Boss_1/Boss_3_Bullet.tscn")
 
 func _ready():
