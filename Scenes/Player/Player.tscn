@@ -34,4 +34,3 @@ one_shot = true
 
 [node name="sfx_shot" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
-volume_db = -10.0
