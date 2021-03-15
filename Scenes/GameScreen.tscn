@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assests/SoundEffects/sfx/Explosion_sfx.wav" type="AudioStream" id=2]
 [ext_resource path="res://Script/GameScreen.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Boss_1/Boss_1.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Assests/Fonts/font.otf" type="DynamicFontData" id=7]
@@ -162,9 +163,13 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="sfx_explosion" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = -21.412
 [connection signal="boss_fight_start" from="." to="Boss_1" method="_on_GameScreen_boss_fight_start"]
-[connection signal="boss_fight_start" from="." to="Boss_3" method="_on_GameScreen_boss_fight_start"]
 [connection signal="boss_fight_start" from="." to="Boss_2" method="_on_GameScreen_boss_fight_start"]
+[connection signal="boss_fight_start" from="." to="Boss_3" method="_on_GameScreen_boss_fight_start"]
 [connection signal="boss_killed" from="Boss_1" to="." method="_on_Boss_boss_killed"]
 [connection signal="boss_killed" from="Boss_2" to="." method="_on_Boss_boss_killed"]
 [connection signal="boss_killed" from="Boss_3" to="." method="_on_Boss_boss_killed"]

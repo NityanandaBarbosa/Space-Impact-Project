@@ -79,6 +79,7 @@ func _on_FireDelayerTimer_timeout():
 
 
 func _on_Boss_3_area_shape_entered(area_id, area, area_shape, self_shape):
-	if area.is_in_group("player"):
-		Global._decrease_life()
+	if($".".is_visible_in_tree()):
+		if area.is_in_group("player"):
+			Global._decrease_life()
 

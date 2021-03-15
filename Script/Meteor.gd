@@ -50,3 +50,4 @@ func _on_Meteor_area_entered(area):
 	if area.is_in_group("player"):
 		Global._decrease_life()
 		queue_free()
+		Global._explosion(true)

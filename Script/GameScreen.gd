@@ -16,6 +16,7 @@ var spawn_control: float = 0
 var boss_fight = false
 var init_phase = false
 const  window_size = Vector2(5000,720) #ajustar
+var normalVolume
 var location = Vector2()
 var packed_scene = [
 	preload('res://Scenes/Meteor/Meteor.tscn'),
@@ -43,14 +44,18 @@ const PHASE_TIME = [60, 90, 120]
 var rng = RandomNumberGenerator.new()
 
 func _ready():
-	
+	if(Global.control_shot == true):
+		$Music_Fase.volume_db = -80
+		$sfx_explosion.volume_db = -80
 	start_phase(0)
 
 func _process(delta):
 	
-	#print(s)
+	if(Global.control_explosion == true):
+		print("Atira")
+		$sfx_explosion.play()
+		Global._explosion(false)
 	process_frame()
-	
 	
 func _on_ms_timeout():
 		ms += 1

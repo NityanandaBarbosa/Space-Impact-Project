@@ -16,6 +16,7 @@ func _process(delta):
 		$VideoPlayer.play()
 	if($MusicControl.is_pressed() == false):
 		$MusicPlayerInit.volume_db = -80
+		Global.control_shot = true
 	else:
 		$MusicPlayerInit.volume_db = normalVolume
 	#if(not $MusicPlayerInit.is_playing()):
