@@ -37,7 +37,7 @@ func damage(amount: int):
 		
 func random_life():
 	rng.randomize()
-	random_choice = rng.randi_range(0, 2)
+	random_choice = rng.randi_range(0, 6)
 	if random_choice == 1:
 		var life_scores := plLife.instance()
 		life_scores.global_position = $".".global_position
