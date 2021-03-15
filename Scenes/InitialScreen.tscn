@@ -18,10 +18,10 @@ font_data = ExtResource( 1 )
 [sub_resource type="DynamicFont" id=3]
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=4]
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=5]
 size = 25
 font_data = ExtResource( 1 )
 
@@ -101,7 +101,7 @@ margin_top = -18.184
 margin_right = 69.1652
 margin_bottom = 22.816
 custom_fonts/font = SubResource( 3 )
-text = "New Game "
+text = "Start Game "
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -115,7 +115,7 @@ margin_left = -70.0
 margin_top = 31.118
 margin_right = 69.0
 margin_bottom = 72.118
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 4 )
 text = "Credits"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -148,7 +148,7 @@ margin_left = 47.5979
 margin_top = 27.4709
 margin_right = 166.598
 margin_bottom = 58.4709
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 5 )
 text = "HIGH"
 align = 1
 valign = 1
@@ -158,7 +158,19 @@ __meta__ = {
 
 [node name="MusicPlayerInit" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
-volume_db = -21.745
+volume_db = -23.084
 autoplay = true
+
+[node name="MusicControl" type="CheckButton" parent="."]
+margin_left = 14.8923
+margin_top = 10.8229
+margin_right = 145.892
+margin_bottom = 50.8229
+rect_scale = Vector2( 1.5, 1.5 )
+pressed = true
+text = "Sound  :"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="ButtonsContainer/btn_newgame" to="." method="_on_btn_newgame_pressed"]
 [connection signal="pressed" from="ButtonsContainer/Button3" to="." method="_on_Button3_pressed"]
