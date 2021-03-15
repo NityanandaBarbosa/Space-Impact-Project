@@ -5,13 +5,17 @@ var plBullet := preload("res://Scenes/Player/bullet.tscn")
 export var speed: float = 500
 export var interval: float = .18
 export var last_shot: float = 0
-
+var normalVolume
 onready var normalGun := $FireGun
 onready var gunsPosition := $SpecialGuns
 onready var fireDelayTimer := $FireDelayerTimer
 
 
 var vel := Vector2(0,0)
+
+func _ready():
+	if(Global.control_shot == true):
+		$sfx_shot.volume_db = -80
 
 func _process(delta):
 	if(Global.control_shot == true):
@@ -20,12 +24,11 @@ func _process(delta):
 			#$FireDelayerTimer.start()
 			if last_shot <= 0:
 				for child in gunsPosition.get_children():
-						var bulllet := plBullet.instance()
-						bulllet.global_position = child.global_position
-						get_tree().current_scene.add_child(bulllet)
-						$sfx_shot.play()
-						last_shot = interval
-						
+					var bulllet := plBullet.instance()
+					bulllet.global_position = child.global_position
+					get_tree().current_scene.add_child(bulllet)
+					last_shot = interval
+					$sfx_shot.play()
 					
 			#var bulllet := plBullet.instance()
 			#bulllet.global_position = normalGun.global_position
@@ -60,3 +63,4 @@ func _physics_process(delta):
 	
 func damage(amount: int):
 	Global._enemykilled(1)
+	

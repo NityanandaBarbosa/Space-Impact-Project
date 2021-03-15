@@ -2,6 +2,8 @@ extends Node
 
 var score : int = 0
 var control_shot = false
+var control_sound = false
+var control_explosion = false
 export var life: int = 3
 var highScore = 0
 
@@ -10,6 +12,9 @@ func _ready():
 
 func _enemykilled(points):
 	score += points
+
+func _explosion(state):
+	control_explosion = state
 
 func _check_high_score():
 	if(score > highScore):

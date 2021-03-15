@@ -79,9 +79,12 @@ func _on_FireDelayTimer_timeout():
 
 
 func _on_Enemy_area_entered(area):
+	var c = 0
 	if area.is_in_group("player"):
 		Global._decrease_life()
 		queue_free()
+		Global._explosion(true)
+
 	else:
 		if area.is_in_group("GameScreen"):
 			#print("To dentro")
