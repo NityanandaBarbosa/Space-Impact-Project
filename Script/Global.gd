@@ -2,7 +2,7 @@ extends Node
 
 var score : int = 0
 var control_shot = false
-var control_sound = false
+var control_sound = true
 var control_explosion = false
 export var life: int = 3
 var highScore = 0

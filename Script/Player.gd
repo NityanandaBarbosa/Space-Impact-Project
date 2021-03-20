@@ -14,7 +14,7 @@ onready var fireDelayTimer := $FireDelayerTimer
 var vel := Vector2(0,0)
 
 func _ready():
-	if(Global.control_shot == true):
+	if(Global.control_sound == false):
 		$sfx_shot.volume_db = -80
 
 func _process(delta):

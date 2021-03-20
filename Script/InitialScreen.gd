@@ -5,6 +5,7 @@ var random = RandomNumberGenerator.new()
 var normalVolume
 
 func _ready():
+	$MusicControl.pressed = Global.control_sound
 	random.randomize()
 	var random_choice = random.randi_range(1, 3)
 	$background.texture = load("res://Assests/Background/background"+ str(random_choice) +".jpg" )
@@ -16,9 +17,10 @@ func _process(delta):
 		$VideoPlayer.play()
 	if($MusicControl.is_pressed() == false):
 		$MusicPlayerInit.volume_db = -80
-		Global.control_shot = true
+		Global.control_sound = false
 	else:
 		$MusicPlayerInit.volume_db = normalVolume
+		Global.control_sound = true
 	#if(not $MusicPlayerInit.is_playing()):
 		
 	
