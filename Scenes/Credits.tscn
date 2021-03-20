@@ -6,7 +6,7 @@
 [ext_resource path="res://Assests/SoundEffects/bgm/Music_init.wav" type="AudioStream" id=5]
 [ext_resource path="res://Assests/Background/Asteroids_-_9135.ogv" type="VideoStream" id=6]
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
@@ -17,10 +17,10 @@ font_data = ExtResource( 1 )
 script = ExtResource( 3 )
 
 [node name="VideoPlayer" type="VideoPlayer" parent="."]
-margin_left = -4.40442
-margin_top = -7.81805
-margin_right = 1275.6
-margin_bottom = 712.182
+margin_left = -7.23291
+margin_top = 6.3241
+margin_right = 1272.77
+margin_bottom = 726.324
 stream = ExtResource( 6 )
 autoplay = true
 __meta__ = {
@@ -57,7 +57,7 @@ margin_left = -70.3382
 margin_top = -6.1366
 margin_right = 73.6618
 margin_bottom = 46.8634
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 1 )
 text = "Back"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -79,19 +79,19 @@ volume_db = -21.745
 autoplay = true
 
 [node name="Label" type="Label" parent="."]
-margin_left = 43.3701
+margin_left = 47.6127
 margin_top = 23.5846
-margin_right = 1231.37
+margin_right = 1235.61
 margin_bottom = 436.585
 rect_rotation = -0.224897
 custom_fonts/font = SubResource( 2 )
 text = "Team: 
-    • Guilherme portela()
-    • Nityananda Barbosa()
-    • Paulo Marvin()
-    • Raul Aquino()
-    • Leandro Lima()
-    • Wendell Sousa()"
+    • Guilherme Portela
+    • Nityananda Barbosa
+    • Paulo Marvin
+    • Raul Aquino
+    • Leandro Lima
+    • Wendell Sousa"
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -44,7 +44,7 @@ const PHASE_TIME = [60, 90, 120]
 var rng = RandomNumberGenerator.new()
 
 func _ready():
-	if(Global.control_shot == true):
+	if(Global.control_sound == false):
 		$Music_Fase.volume_db = -80
 		$sfx_explosion.volume_db = -80
 	start_phase(0)

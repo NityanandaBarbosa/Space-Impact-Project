@@ -17,10 +17,5 @@ func _process(delta):
 func _on_btn_newgame_pressed():
 	 get_tree().change_scene("res://Scenes/GameScreen.tscn")
 
-
-
-	
-
-
 func _on_Button3_pressed():
 	get_tree().change_scene("res://Scenes/InitialScreen.tscn")
